@@ -25,6 +25,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |------|----|-------|
 |title|string|null: false|
 |viewed|integer|null: false|
+|reference|string||
 ### Association
 - has_many :users-wordbooks
 - has_many :users, through: :users-wordbooks
