@@ -1,0 +1,35 @@
+.header{
+  width: 100%;
+  height: 70px;
+  background-color: azure;
+  box-shadow: 0 0 1px gray;
+  position: fixed;
+  z-index: 10;
+  &__logo{
+    height: 60px;
+    margin: 5px 10px;
+    float: left;
+  }
+  &__title{
+    font-size: 30px;
+    float: left;
+    line-height: 70px;
+  }
+  &__username{
+    @include text-center(70px,center);
+    width: 40px;
+    float: right;
+  }
+  &__login{
+    @include reset_a-tag(gray);
+    float: right;
+    margin: 0 10px;
+    line-height: 70px;
+  }
+  &__logout{
+    @include reset_a-tag(gray);
+    float: right;
+    margin: 0 10px;
+    line-height: 70px;
+  }
+}
