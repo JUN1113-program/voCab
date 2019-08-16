@@ -10,4 +10,5 @@
   %body
     = link_to "ログイン", new_user_session_path
     = link_to "ログアウト", destroy_user_session_path, method: :delete
+      = link_to "ログイン", new_user_session_path, class: "header__login" unless user_signed_in?
     = yield
