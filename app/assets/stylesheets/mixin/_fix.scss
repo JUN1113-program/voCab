@@ -14,15 +14,13 @@
 
 // AタグのデフォルトのCSSを打ち消す
 @mixin reset_a-tag($color: $white){
-  & a{
-    &:link{
-      color: $color;
-    }
-    &:visited{
-      color: $color;
-    }
-    text-decoration: none;
+  &:link{
+    color: $color;
   }
+  &:visited{
+    color: $color;
+  }
+  text-decoration: none;
 }
 
 // floatのbugを打ち消す
