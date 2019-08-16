@@ -1,0 +1,2 @@
+class WordbookController < ApplicationController
+end
