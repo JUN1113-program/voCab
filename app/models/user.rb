@@ -7,8 +7,7 @@ class User < ApplicationRecord
   has_one_attached :forgettingcurve
   has_many :favorites
   has_many :wordbooks, through: :favorites
-  has_many :users_wordbooks
-  has_many :wordbooks, through: :users_wordbooks
-  has_many :users_tags
-  has_many :tags, through: :users_tags
+  has_many :wordbooks
+  has_many :user_tags
+  has_many :tags, through: :user_tags
 end
