@@ -2,7 +2,8 @@
   padding-top: 70px;
   background-color: $main-color;
   width: 75%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   float: left;
 }
 
