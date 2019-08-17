@@ -5,3 +5,8 @@
     = wordbook.viewed
   .wordbook__user
     = wordbook.user.nickname
+  .wordbook__created-at
+    = l(wordbook.created_at, format: :long)
+  .wordbook__tags
+    - wordbook.tags.each do |tag|
+      = "##{tag.name}"
