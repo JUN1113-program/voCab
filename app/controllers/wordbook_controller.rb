@@ -3,6 +3,11 @@ class WordbookController < ApplicationController
   def index
     @wordbooks = Wordbook.all
   end
+
+  def new
+    @wordbook = Wordbook.new
+  end
+
   def show
     @wordbook = Wordbook.find(params[:id])
     viewed = @wordbook.viewed + 1
