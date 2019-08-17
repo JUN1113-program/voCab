@@ -34,3 +34,22 @@
     line-height: 70px;
   }
 }
+
+.main{
+  padding-top: 70px;
+  background-color: $main-color;
+  width: 75%;
+  min-height: 100vh;
+  height: auto;
+  float: left;
+}
+
+.sideBar{
+  position: fixed;
+  padding-top: 70px;
+  background-color: $light-green;
+  width: 25%;
+  height: 100vh;
+  right: 0;
+  z-index: 0;
+}
