@@ -8,5 +8,6 @@
 
 // スタイルシートの宣言
 @import "style";
-@import "wordbook";
-@import "wordcard";
+@import "wordbook/index";
+@import "wordbook/new";
+@import "wordbook/show";
