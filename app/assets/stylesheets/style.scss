@@ -33,6 +33,12 @@
     margin: 0 10px;
     line-height: 70px;
   }
+  &__new{
+    @include reset_a-tag(gray);
+    float: right;
+    margin: 0 10px;
+    line-height: 70px;
+  }
 }
 
 .main{
