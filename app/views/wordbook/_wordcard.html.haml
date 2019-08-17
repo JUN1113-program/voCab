@@ -1,10 +1,6 @@
-- wordbook.words.each do |word|
-  .wordcard
-    .wordcard__front
-      = word.front
-    .wordcard__tag
-      - wordbook.tags.each do |tag|
-        = "##{tag.name}"
-  .wordcard
-    .wordcard__reverse
-      = word.reverse
+.wordcard
+  .wordcard__front
+    = word.front
+.wordcard
+  .wordcard__reverse
+    = word.reverse
