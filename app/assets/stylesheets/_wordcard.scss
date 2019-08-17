@@ -1,0 +1,23 @@
+.wordcards{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  & .wordcard{
+    @include wordbook;
+    &__front{
+      @include text-center(150px,center);
+      @include font-data(black,30px,bold);
+    }
+    &__reverse{
+      @include text-center(150px,center);
+      @include font-data(black,30px,bold);
+    }
+    &__tag{
+      @include font-data(gray,10px,400);
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+    }
+  }
+}
