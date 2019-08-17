@@ -3,25 +3,39 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-content: space-around;
-  & .wordcard{
-    margin: 10px 0px;
-    width: 400px;
-    background-color: $white;
-    box-shadow: 1px 1px 2px gray;
-    position: relative;
-    &__front{
+
+  & .wordbook{
+    @include wordbook;
+    &__title{
       @include text-center(150px,center);
       @include font-data(black,30px,bold);
+      & a{
+        @include reset_a-tag(black); 
+      }
     }
-    &__reverse{
-      @include text-center(150px,center);
-      @include font-data(black,30px,bold);
-    }
-    &__tag{
-      @include font-data(gray,10px,400);
+    &__viewed{
+      @include font-data(gray,12px,500);
       position: absolute;
-      right: 5px;
-      bottom: 5px;
+      right: 0;
+      bottom: 0;
+    }
+    &__user{
+      @include font-data(gray,15px,500);
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+    }
+    &__created-at{
+      @include font-data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      bottom:  30px;
+    }
+    &__tags{
+      @include font-data(gray,12px,500);
+      position: absolute;
+      left: 0;
+      bottom:0;
     }
   }
 }
