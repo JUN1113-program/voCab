@@ -1,6 +1,6 @@
 .wordbook
   .wordbook__title
-    = wordbook.title
+    = link_to "#{wordbook.title}", wordbook_path(wordbook.id)
   .wordbook__viewed
     = wordbook.viewed
   .wordbook__user
