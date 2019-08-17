@@ -4,6 +4,8 @@ class WordbookController < ApplicationController
     @wordbooks = Wordbook.all
   end
   def show
-    @wordbook = wordbook.find(params[:id])
+    @wordbook = Wordbook.find(params[:id])
+    viewed = @wordbook.viewed + 1
+    @wordbook.update(viewed: viewed)
   end
 end
