@@ -11,7 +11,8 @@
     float: left;
   }
   &__title{
-    font-size: 30px;
+    @include reset_a-tag(black);
+    @include font-data(black,30px,bold);
     float: left;
     line-height: 70px;
   }
