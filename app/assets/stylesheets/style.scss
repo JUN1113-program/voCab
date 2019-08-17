@@ -11,7 +11,8 @@
     float: left;
   }
   &__title{
-    font-size: 30px;
+    @include reset_a-tag(black);
+    @include font-data(black,30px,bold);
     float: left;
     line-height: 70px;
   }
@@ -32,4 +33,23 @@
     margin: 0 10px;
     line-height: 70px;
   }
+}
+
+.main{
+  padding-top: 70px;
+  background-color: $main-color;
+  width: 75%;
+  min-height: 100vh;
+  height: auto;
+  float: left;
+}
+
+.sideBar{
+  position: fixed;
+  padding-top: 70px;
+  background-color: $light-green;
+  width: 25%;
+  height: 100vh;
+  right: 0;
+  z-index: 0;
 }

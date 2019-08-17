@@ -21,3 +21,13 @@
   max-width: $noted-width;
   min-height: $noted-height;
 }
+
+// 単語帳風のスタイル
+@mixin wordbook {
+  margin: 10px 0px;
+  height: 150px;
+  width: 400px;
+  background-color: $white;
+  box-shadow: 1px 1px 2px gray;
+  position: relative;
+}

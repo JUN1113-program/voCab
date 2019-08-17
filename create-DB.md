@@ -15,8 +15,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 - has_one_attached :forgettingcurve
 - has_many :favorites
 - has_many :wordbooks, through: :favorites
-- has_many :users-wordbooks
-- has_many :wordbooks, through: :users-wordbooks
+- has_many :wordbooks
 - has_many :users-tags
 - has_many :tags, through: :users-tags
 
@@ -27,8 +26,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |viewed|integer|null: false|
 |reference|string||
 ### Association
-- has_many :users-wordbooks
-- has_many :users, through: :users-wordbooks
+- belongs_to :user
 - has_many :favorites
 - has_many :users, through: :favorites
 - has_many :tests

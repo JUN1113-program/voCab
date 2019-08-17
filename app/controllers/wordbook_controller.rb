@@ -1,5 +1,11 @@
 class WordbookController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index,:show]
   def index
+    @wordbooks = Wordbook.all
+  end
+  def show
+    @wordbook = Wordbook.find(params[:id])
+    viewed = @wordbook.viewed + 1
+    @wordbook.update(viewed: viewed)
   end
 end
