@@ -16,6 +16,10 @@ class WordbooksController < ApplicationController
   def edit
   end
 
+  def update
+    @wordbook.update(wordbook_params)
+    redirect_to root_path
+  end
   def show
     @wordbook = Wordbook.find(params[:id])
     viewed = @wordbook.viewed + 1
