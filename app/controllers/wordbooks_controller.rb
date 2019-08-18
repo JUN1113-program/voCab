@@ -20,6 +20,11 @@ class WordbooksController < ApplicationController
     @wordbook.update(wordbook_params)
     redirect_to root_path
   end
+  def destroy
+    @wordbook.destroy
+    redirect_to root_path
+  end
+
   def show
     @wordbook = Wordbook.find(params[:id])
     viewed = @wordbook.viewed + 1
