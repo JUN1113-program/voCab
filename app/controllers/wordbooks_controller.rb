@@ -13,6 +13,9 @@ class WordbooksController < ApplicationController
     redirect_to new_wordbook_word_path(@wordbook.id)
   end
 
+  def edit
+  end
+
   def show
     @wordbook = Wordbook.find(params[:id])
     viewed = @wordbook.viewed + 1
