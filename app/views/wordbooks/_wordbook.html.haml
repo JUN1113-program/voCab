@@ -10,3 +10,10 @@
   .wordbook__tags
     - wordbook.tags.each do |tag|
       = "##{tag.name}"
+  - if user_signed_in? && current_user.id == wordbook.user.id
+    .wordbook__edit
+      = link_to "Edit", edit_wordbook_path(wordbook.id)
+    .wordbook__add
+      = link_to "Add",new_wordbook_word_path(wordbook.id)
+    .wordbook__destroy
+      = link_to "Delete", wordbook_path(wordbook.id), method: :delete
