@@ -27,4 +27,7 @@ class WordsController < ApplicationController
   end
 
   private
+  def word_params
+    params.require(:word).permit(:front,:reverse).merge(wordbook_id: params[:wordbook_id])
+  end
 end
