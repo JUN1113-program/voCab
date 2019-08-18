@@ -52,6 +52,15 @@
       left: 0;
       bottom: 0;
     }
+    &__add{
+      @include font-data(gray,20px,bold);
+        & a{
+          @include reset_a-tag(gray);
+        }
+        position: absolute;
+        left: 50px;
+        bottom: 0;
+    }
     }
   }
 }
