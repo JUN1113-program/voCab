@@ -1,0 +1,14 @@
+.showUser{
+  &__bar{
+    @include card_style(50px,85%);
+    margin: 10px auto;
+    &__name{
+      @include text_center(50px,center);
+      @include font_data(black,20px,bold);
+    }
+    &__fav{
+      @include text_center(50px,center);
+      @include font_data(black,20px,bold);
+    }
+  }
+}

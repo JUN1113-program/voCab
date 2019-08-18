@@ -1,0 +1,17 @@
+.main.main--showUser
+  .showUser
+    .showUser__bar
+      .showUser__bar__name
+        - if user_signed_in? && current_user.id == @user.id
+          Mypage
+        - else
+          = "#{@user.nickname}のページ"
+    .wordbooks
+      = render partial: "wordbooks/wordbook",collection: @user.wordbooks
+  .showUser
+    .showUser__bar
+      .showUser__bar__fav
+        お気に入り一覧
+    .wordbooks
+      ここにお気に入りのカード一覧が表示されます
+.sideBar.sideBar--showUser
