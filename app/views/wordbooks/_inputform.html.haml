@@ -1,0 +1,12 @@
+= form_for wordbook,html:{class:"inputWordBook"} do |f|
+  .inputWordBook__title
+    = f.label :title, "単語帳の名前"
+    = f.text_field :title, value: wordbook.title
+  .inputWordBook__reference
+    = f.label :reference, "参照元"
+    = f.text_field :reference, value: wordbook.reference
+  .inputWordBook__share
+    = f.label :share, "公開：０、非公開：１"
+    = f.number_field :share, value: wordbook.share
+  .inputWordBook__submit
+    = f.submit
