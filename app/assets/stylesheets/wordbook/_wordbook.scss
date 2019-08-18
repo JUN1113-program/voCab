@@ -79,4 +79,14 @@
       bottom: 0;
     }
   }
+  //マイページのユーザーカードの設定
+  & .wordbook--user{
+    & .user{
+      width: 200px;
+      margin: 0 auto;
+      &__name{
+        text-align: center;
+      }
+    }
+  }
 }
