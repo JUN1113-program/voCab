@@ -31,7 +31,8 @@
       @include font-data(gray,12px,500);
       position: absolute;
       right: 0;
-      bottom:  30px;
+      bottom: 0;
+      margin-right: 5px;
     }
     &__tags{
       @include font-data(gray,12px,500);
