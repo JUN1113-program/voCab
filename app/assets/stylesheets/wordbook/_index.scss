@@ -6,49 +6,49 @@
   & .wordbook{
     @include wordbook;
     &__title{
-      @include text-center(150px,center);
-      @include font-data(black,30px,bold);
+      @include text_center(150px,center);
+      @include font_data(black,30px,bold);
       & a{
         @include reset_a-tag(black); 
       }
     }
     &__viewed{
-      @include font-data(gray,12px,500);
+      @include font_data(gray,12px,500);
       position: absolute;
       right: 0;
       bottom: 15px;
       margin-right: 5px;
     }
     &__user{
-      @include font-data(gray,15px,500);
+      @include font_data(gray,15px,500);
       position: absolute;
       right: 0;
       top: 15px;
       margin-right: 5px;
     }
     &__created-at{
-      @include font-data(gray,12px,500);
+      @include font_data(gray,12px,500);
       position: absolute;
       right: 0;
       bottom: 0;
       margin-right: 5px;
     }
     &__tags{
-      @include font-data(gray,12px,500);
+      @include font_data(gray,12px,500);
       position: absolute;
       left: 0;
       top: 0;
       margin-right: 5px;
     }
     &__reference{
-      @include font-data(gray,12px,500);
+      @include font_data(gray,12px,500);
       position: absolute;
       right: 0;
       top: 0;
       margin-right: 5px;
     }
     &__edit{
-      @include font-data(gray,20px,bold);
+      @include font_data(gray,20px,bold);
       & a{
         @include reset_a-tag(gray);
       }
@@ -57,7 +57,7 @@
       bottom: 0;
     }
     &__add{
-      @include font-data(gray,20px,bold);
+      @include font_data(gray,20px,bold);
         & a{
           @include reset_a-tag(gray);
         }
@@ -66,7 +66,7 @@
         bottom: 0;
     }
     &__destroy{
-      @include font-data(gray,20px,bold);
+      @include font_data(gray,20px,bold);
       & a{
         @include reset_a-tag(gray);
       }
