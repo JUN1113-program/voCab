@@ -18,7 +18,10 @@
   }
   &__username{
     @include text_center(70px,center);
+    @include reset_a-tag(black);
+    @include font_data(black,20px,bold);
     float: right;
+    margin: 0 10px;
   }
   &__login{
     @include reset_a-tag(gray);
