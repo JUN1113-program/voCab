@@ -10,6 +10,10 @@
   .wordbook__tags
     - wordbook.tags.each do |tag|
       = "##{tag.name}"
+  .wordbook__reference
+    = "参照元: "
+    = wordbook.reference.present? ? wordbook.reference : "なし"
+
   - if user_signed_in? && current_user.id == wordbook.user.id
     .wordbook__edit
       = link_to "Edit", edit_wordbook_path(wordbook.id)
