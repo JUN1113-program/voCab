@@ -1,8 +1,9 @@
 .wordcard
-  .wordcard__edit
-    = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
-  .wordcard__destroy
-    = link_to "Delete",wordbook_word_path(word.wordbook.id, word.id),method: :delete
+  - if user_signed_in? 
+    .wordcard__edit
+      = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
+    .wordcard__destroy
+      = link_to "Delete",wordbook_word_path(word.wordbook.id, word.id),method: :delete
   .wordcard__front
     = word.front
 .wordcard
