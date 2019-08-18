@@ -1,4 +1,17 @@
 .main.main--showUser
   .wordbooks
-    = render partial: "wordbooks/wordbook",collection: @wordbooks
+    - if user_signed_in? && current_user.id == @user.id
+      .wordbook.wordbook--user
+        .user
+          .user__name
+            Mypage
+    - else
+      .wordbook.wordbook--user
+        .user
+          .user__name
+            = "#{@user.nickname}のページ"
+
+    = render partial: "wordbooks/wordbook",collection: @user.wordbooks
+  .wordbooks.wordbooks--favorites
+
 .sideBar.sideBar--showUser
