@@ -14,6 +14,15 @@
       left: 0;
       bottom: 0;
     }
+    &__destroy{
+      @include font-data(gray,20px,bold);
+      & a{
+        @include reset_a-tag(gray);
+      }
+      position: absolute;
+      left: 50px;
+      bottom: 0;
+    }
     &__front{
       @include text-center(150px,center);
       @include font-data(black,30px,bold);
