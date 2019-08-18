@@ -26,4 +26,5 @@ class WordsController < ApplicationController
     redirect_to wordbook_path(params[:wordbook_id])
   end
 
+  private
 end
