@@ -21,4 +21,9 @@ class WordsController < ApplicationController
     redirect_to wordbook_path(params[:wordbook_id])
   end
 
+  def destroy
+    @word.destroy
+    redirect_to wordbook_path(params[:wordbook_id])
+  end
+
 end
