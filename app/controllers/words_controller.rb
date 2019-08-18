@@ -15,4 +15,10 @@ class WordsController < ApplicationController
 
   def edit
   end
+
+  def update
+    @word.update(word_params)
+    redirect_to wordbook_path(params[:wordbook_id])
+  end
+
 end
