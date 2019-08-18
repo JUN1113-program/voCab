@@ -4,7 +4,8 @@
   justify-content: space-around;
   align-content: space-around;
   & .wordbook{
-    @include wordbook;
+    @include card_style;
+    position: relative;
     &__title{
       @include text_center(150px,center);
       @include font_data(black,30px,bold);
