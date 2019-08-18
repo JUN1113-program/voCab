@@ -1,6 +1,6 @@
 .header{
   width: 100%;
-  height: 70px;
+  height: $header-height;
   background-color: azure;
   box-shadow: 0 0 1px gray;
   position: fixed;
@@ -18,7 +18,6 @@
   }
   &__username{
     @include text-center(70px,center);
-    width: 40px;
     float: right;
   }
   &__login{
@@ -45,7 +44,7 @@
   padding-top: 70px;
   background-color: $main-color;
   width: 75%;
-  min-height: 100vh;
+  min-height: $main-height;
   height: auto;
   float: left;
 }
