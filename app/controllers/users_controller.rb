@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def show 
   before_action :authenticate_user!, except: [:show]
+  def show
+    @wordbooks = User.find(params[:id]).wordbooks
   end
 end
