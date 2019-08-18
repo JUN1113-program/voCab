@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :wordbooks do
     resources :words
   end
+  resources :users, only: [:show]
 end
