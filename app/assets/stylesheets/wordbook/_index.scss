@@ -43,6 +43,15 @@
       top: 0;
       margin-right: 5px;
     }
+    &__edit{
+      @include font-data(gray,20px,bold);
+      & a{
+        @include reset_a-tag(gray);
+      }
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
     }
   }
 }
