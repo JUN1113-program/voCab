@@ -1,0 +1,12 @@
+.inputWordBook{
+  &__title{
+    @include card_style(100px,200px,#9af583,50%);
+  }
+  &__reference{
+    @include card_style(100px,200px,#9af583,50%);
+  }
+  &__share{
+    @include card_style(100px,200px,#9af583,50%);
+  }
+}
+
