@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "wordbooks#index"
-  resources :wordbooks
+  resources :wordbooks do
+    resources :words
+  end
 end
