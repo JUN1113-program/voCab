@@ -30,6 +30,11 @@ class WordbooksController < ApplicationController
     viewed = @wordbook.viewed + 1
     @wordbook.update(viewed: viewed)
   end
+
+  private
+  def wordbook_params
+    params.require(:wordbook).permit(:title, :reference, :share).merge(user_id: current_user.id)
+  end
   def set_wordbook
     @wordbook = Wordbook.find(params[:id])
   end
