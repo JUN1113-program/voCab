@@ -6,7 +6,7 @@
   & .wordcard{
     @include wordbook;
     &__edit{
-      @include font-data(gray,20px,bold);
+      @include font_data(gray,20px,bold);
       & a{
         @include reset_a-tag(gray);
       }
