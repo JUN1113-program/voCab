@@ -36,6 +36,13 @@
       position: absolute;
       left: 0;
       bottom:0;
+    &__reference{
+      @include font-data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-right: 5px;
+    }
     }
   }
 }
