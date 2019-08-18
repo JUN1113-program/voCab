@@ -12,12 +12,12 @@
   }
   &__title{
     @include reset_a-tag(black);
-    @include font-data(black,30px,bold);
+    @include font_data(black,30px,bold);
     float: left;
     line-height: 70px;
   }
   &__username{
-    @include text-center(70px,center);
+    @include text_center(70px,center);
     float: right;
   }
   &__login{
