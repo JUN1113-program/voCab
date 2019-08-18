@@ -8,6 +8,11 @@ class WordbooksController < ApplicationController
     @wordbook = Wordbook.new
   end
 
+  def create
+    @wordbook = Wordbook.create(wordbook_params.merge(viewed: 0))
+    redirect_to new_wordbook_word_path(@wordbook.id)
+  end
+
   def show
     @wordbook = Wordbook.find(params[:id])
     viewed = @wordbook.viewed + 1
