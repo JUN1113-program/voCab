@@ -24,7 +24,8 @@
       @include font-data(gray,15px,500);
       position: absolute;
       right: 0;
-      bottom: 15px;
+      top: 15px;
+      margin-right: 5px;
     }
     &__created-at{
       @include font-data(gray,12px,500);
