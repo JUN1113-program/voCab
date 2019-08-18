@@ -22,6 +22,9 @@
     }
     &__user{
       @include font_data(gray,15px,500);
+      & a{
+        @include reset_a-tag(gray);
+      }
       position: absolute;
       right: 0;
       top: 15px;
