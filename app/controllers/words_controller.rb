@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_wordbook, only: [:new,:edit,:update,:destroy]
   def new
     @word = @wordbook.words.new
   end
@@ -29,5 +30,8 @@ class WordsController < ApplicationController
   private
   def word_params
     params.require(:word).permit(:front,:reverse).merge(wordbook_id: params[:wordbook_id])
+  end
+  def set_wordbook
+    @wordbook = Wordbook.find(params[:wordbook_id])
   end
 end
