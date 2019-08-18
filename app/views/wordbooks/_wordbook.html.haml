@@ -4,7 +4,7 @@
   .wordbook__viewed
     = "閲覧数: #{wordbook.viewed}"
   .wordbook__user
-    = "作者: #{wordbook.user.nickname}"
+    = link_to "作者: #{wordbook.user.nickname}", user_path(wordbook.user.id)
   .wordbook__created-at
     = l(wordbook.created_at, format: :long)
   .wordbook__tags
