@@ -1,0 +1,23 @@
+.wordbook
+  .wordbook__title
+    = link_to "#{wordbook.title}", wordbook_path(wordbook.id)
+  .wordbook__viewed
+    = "閲覧数: #{wordbook.viewed}"
+  .wordbook__user
+    = "作者: #{wordbook.user.nickname}"
+  .wordbook__created-at
+    = l(wordbook.created_at, format: :long)
+  .wordbook__tags
+    - wordbook.tags.each do |tag|
+      = "##{tag.name}"
+  .wordbook__reference
+    = "参照元: "
+    = wordbook.reference.present? ? wordbook.reference : "なし"
+
+  - if user_signed_in? && current_user.id == wordbook.user.id
+    .wordbook__edit
+      = link_to "Edit", edit_wordbook_path(wordbook.id)
+    .wordbook__add
+      = link_to "Add",new_wordbook_word_path(wordbook.id)
+    .wordbook__destroy
+      = link_to "Delete", wordbook_path(wordbook.id), method: :delete

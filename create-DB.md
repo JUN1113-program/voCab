@@ -25,6 +25,8 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |title|string|null: false|
 |viewed|integer|null: false|
 |reference|string||
+|share|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :favorites
@@ -120,15 +122,6 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 - belongs_to :user
 
 # 中間テーブル
-## Users-Wordbooksテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|wordbook_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :wordbook
 
 ## favoritesテーブル
 |Column|Type|Options|

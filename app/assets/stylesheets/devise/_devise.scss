@@ -1,0 +1,9 @@
+.main--devise{
+  width: 100%;
+  margin-top: 20px;
+  
+  & .devise{
+    @include noted;
+    padding-top: 100px;
+  }
+}

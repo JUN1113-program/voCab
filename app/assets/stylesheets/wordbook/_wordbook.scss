@@ -1,0 +1,79 @@
+.wordbooks{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  & .wordbook{
+    @include card_style;
+    position: relative;
+    &__title{
+      @include text_center(150px,center);
+      @include font_data(black,30px,bold);
+      & a{
+        @include reset_a-tag(black); 
+      }
+    }
+    &__viewed{
+      @include font_data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+      margin-right: 5px;
+    }
+    &__user{
+      @include font_data(gray,15px,500);
+      position: absolute;
+      right: 0;
+      top: 15px;
+      margin-right: 5px;
+    }
+    &__created-at{
+      @include font_data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: 5px;
+    }
+    &__tags{
+      @include font_data(gray,12px,500);
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-right: 5px;
+    }
+    &__reference{
+      @include font_data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-right: 5px;
+    }
+    &__edit{
+      @include font_data(gray,20px,bold);
+      & a{
+        @include reset_a-tag(gray);
+      }
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    &__add{
+      @include font_data(gray,20px,bold);
+        & a{
+          @include reset_a-tag(gray);
+        }
+        position: absolute;
+        left: 50px;
+        bottom: 0;
+    }
+    &__destroy{
+      @include font_data(gray,20px,bold);
+      & a{
+        @include reset_a-tag(gray);
+      }
+      position: absolute;
+      left: 100px;
+      bottom: 0;
+    }
+  }
+}
