@@ -1,5 +1,15 @@
-= form_for @wordbook do |f|
-  .main.main--front
-    表
-  .sideBar.sideBar--reverse
-    裏
+.main.main--newWordBook
+  = form_for @wordbook,html:{class:"newWordBook"} do |f|
+    .newWordBook__title
+      = f.label :title, "単語帳の名前"
+      = f.text_field :title
+    .newWordBook__reference
+      = f.label :reference, "参照元"
+      = f.text_field :reference
+    .newWordBook__share
+      = f.label :share, "公開：０、非公開：１"
+      = f.number_field :share
+    .newWordBook__submit
+      = f.submit
+.sideBar.sideBar--newWordBook
+  裏
