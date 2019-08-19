@@ -6,6 +6,10 @@ class TestresultsController < ApplicationController
     params.permit(:test_id).merge(user_id: current_user.id,score: 0)
   end
 
+  def selections_params
+    params.require(:testresult).require(:testword_id).values
+  end
+
   def move_to_root
     redirect_to root_path unless params[:testresult]
   end
