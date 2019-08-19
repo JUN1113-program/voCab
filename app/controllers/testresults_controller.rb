@@ -1,6 +1,10 @@
 class TestresultsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root, only: :create
+  def show
+    @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
+  end
+
   private
   def testresult_params
     params.permit(:test_id).merge(user_id: current_user.id,score: 0)
