@@ -1,8 +1,10 @@
 .main.main--showTest
   .testcards
     = form_for [@wordbook,@test,@testresult] do |f|
+      - @wordbook.test.questions.each.with_index do |question,i|
         .testcard
           .testcard__top
+            = "[#{i+1}] #{question.word.front}"
           .testcard__flexbox
               .testcard__flexbox__word{"data-id": i*10 + j}
 .sideBar.sideBar--showTest
