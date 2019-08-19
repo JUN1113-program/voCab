@@ -1,6 +1,11 @@
 class TestresultsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root, only: :create
+
+  def index
+    @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
+  end
+
   def create
     @testresult = Testresult.create(testresult_params)
     selections_params.each do |select|
