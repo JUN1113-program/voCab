@@ -3,6 +3,9 @@ class TestresultsController < ApplicationController
   before_action :move_to_root, only: :create
   def create
     @testresult = Testresult.create(testresult_params)
+    selections_params.each do |select|
+      @testresult.selections.create(testword_id: select)
+    end
     @testresult.update(score: calc_score(@testresult))
     redirect_to user_testresult_path(current_user.id,@testresult.id)
   end
