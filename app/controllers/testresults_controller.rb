@@ -16,9 +16,8 @@ class TestresultsController < ApplicationController
   end
 
   def show
-    @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
+    @testresult = Testresult.find(params[:id])
   end
-
   private
   def testresult_params
     params.permit(:test_id).merge(user_id: current_user.id,score: 0)
