@@ -5,9 +5,9 @@
         .testcard
           .testcard__top
             = "[#{i+1}] #{question.word.front}"
-          .testcard__flexbox
+          .flexbox
             - question.testwords.order("RAND()").each.with_index do |testword,j|
-              .testcard__flexbox__word{"data-id": i*10 + j}
+              .testcard__word{"data-id": i*10 + j}
                 = f.radio_button :id, testword.id, name:"testresult[testword_id][q#{testword.question.id}]"
                 = f.label :id, testword.word
       = f.submit value:"解答", class:"testcard__submit"
