@@ -4,6 +4,7 @@ class TestresultsController < ApplicationController
   def create
     @testresult = Testresult.create(testresult_params)
     @testresult.update(score: calc_score(@testresult))
+    redirect_to user_testresult_path(current_user.id,@testresult.id)
   end
 
   def show
