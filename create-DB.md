@@ -12,7 +12,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |password|string|null: false|
 ### Association
 - has_one_attached :avatar
-- has_one_attached :forgettingcurve
+- has_one :forgettingcurve
 - has_many :favorites
 - has_many :wordbooks, through: :favorites
 - has_many :wordbooks
@@ -31,7 +31,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 - belongs_to :user
 - has_many :favorites
 - has_many :users, through: :favorites
-- has_many :tests
+- has_one :test
 - has_many :words
 - has_many :wordbooks-tags
 - has_many :tags, through: :wordbooks-tags
@@ -56,7 +56,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 ### Association
 - belongs_to :wordbook
 - has_many :images
-
+- has_one :question
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -81,6 +81,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |test_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :test
+- belongs_to :word
 - has_many : testwords
 
 ## Testwordsテーブル
@@ -91,6 +92,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 |question_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :question
+- has_many :selections
 
 ## Testresultsテーブル
 |Column|Type|Options|
@@ -101,6 +103,7 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 ### Association
 - belongs_to :test
 - belongs_to :user
+- has_many :selections
 
 ## Forgettingcurvesテーブル
 |Column|Type|Options|
