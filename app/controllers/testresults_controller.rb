@@ -1,6 +1,9 @@
 class TestresultsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root, only: :create
+  def create
+  end
+
   def show
     @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
   end
