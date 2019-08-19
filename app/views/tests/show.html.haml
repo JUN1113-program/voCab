@@ -10,5 +10,6 @@
               .testcard__flexbox__word{"data-id": i*10 + j}
                 = f.radio_button :id, testword.id, name:"testresult[testword_id][q#{testword.question.id}]"
                 = f.label :id, testword.word
+      = f.submit value:"解答", class:"testcard__submit"
 .sideBar.sideBar--showTest
   テストエリアですよ
