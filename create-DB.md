@@ -121,6 +121,16 @@ https://www.lucidchart.com/documents/edit/4ddb50ba-1632-40f2-b6ad-b2fe498151f3/0
 ### Association
 - belongs_to :user
 
+## Selectionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|testword_id|integer|null: false, foreign_key: true|
+|testresult_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :testword
+- belongs_to :testresult
+
+
 # 中間テーブル
 
 ## favoritesテーブル
