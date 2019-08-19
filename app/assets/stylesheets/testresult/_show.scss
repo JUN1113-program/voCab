@@ -1,0 +1,41 @@
+.testresult{
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+
+  &__score{
+    @include card_style(30px,500px, rgb(238, 182, 182),60%);
+    line-height: 30px;
+    text-align: center;
+    margin: 10px auto 0px;
+  }
+  &__title{
+    @include card_style(30px,500px,rgb(238, 182, 182),60%);
+    line-height: 30px;
+    text-align: center;
+    margin: 10px auto 0px;
+  }
+  &__words{
+    &__top{
+      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+      text-align: center;
+    }
+    &__word{
+      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+    }
+  }
+  &__corrects{
+    &__top{
+      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+      text-align: center;
+    }
+    &__correct{
+      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+    }
+  }
+}
+.flexbox--start{
+  width: 500px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
