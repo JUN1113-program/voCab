@@ -1,0 +1,8 @@
+.main
+  .testresults
+  - @testresults.each.with_index do |testresult,i|
+    .testresult
+      = "テスト結果[#{i+1}] #{testresult.score} ％"
+      = l(testresult.created_at, format: :long)
+      = "取り組んだテスト: #{testresult.test.wordbook.title}"
+.sideBar

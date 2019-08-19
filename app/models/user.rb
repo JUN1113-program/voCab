@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # has_one_attached :avatar
-  has_one_attached :forgettingcurve
+  has_one :forgettingcurve
   has_many :favorites
   has_many :wordbooks, through: :favorites
   has_many :wordbooks
