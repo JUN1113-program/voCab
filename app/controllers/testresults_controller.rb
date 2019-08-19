@@ -10,6 +10,14 @@ class TestresultsController < ApplicationController
     params.require(:testresult).require(:testword_id).values
   end
 
+  def calc_score(a_testresult)
+    score_sum = 0
+    a_testresult.selections.each do |select|
+      score_sum += select.testword.correct
+    end
+    par = score_sum*100 / a_testresult.test.questions.length
+  end
+
   def move_to_root
     redirect_to root_path unless params[:testresult]
   end
