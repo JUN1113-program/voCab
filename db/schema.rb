@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_051536) do
+ActiveRecord::Schema.define(version: 2019_08_19_073916) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -44,7 +44,17 @@ ActiveRecord::Schema.define(version: 2019_08_17_051536) do
     t.bigint "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "word_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "selections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "testword_id"
+    t.bigint "testresult_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["testresult_id"], name: "index_selections_on_testresult_id"
+    t.index ["testword_id"], name: "index_selections_on_testword_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -145,6 +155,8 @@ ActiveRecord::Schema.define(version: 2019_08_17_051536) do
   add_foreign_key "forgettingcurves", "users"
   add_foreign_key "images", "words"
   add_foreign_key "questions", "tests"
+  add_foreign_key "selections", "testresults"
+  add_foreign_key "selections", "testwords"
   add_foreign_key "testresults", "tests"
   add_foreign_key "testresults", "users"
   add_foreign_key "tests", "wordbooks"
