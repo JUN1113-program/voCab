@@ -1,8 +1,20 @@
 .main
-  .testresults
-  - @testresults.each.with_index do |testresult,i|
-    .testresult
-      = "テスト結果[#{i+1}] #{testresult.score} ％"
-      = l(testresult.created_at, format: :long)
-      = "取り組んだテスト: #{testresult.test.wordbook.title}"
+  .testresult
+    .testresult__score
+      = "アナタの得点は#{@testresult.score}点です！！！！！"
+    .testresult__title
+      = "単語帳 #{@testresult.test.wordbook.title}のテストを解いたよ！"
+    .flexbox.flexbox--start
+      .testresult__words
+        .testresult__words__top
+          あなたの解答一覧
+        - @testresult.testwords.each.with_index do |testword, i|
+          .testresult__words__word
+            = "#{i+1}問目 #{testword.word}"
+      .testresult__corrects
+        .testresult__corrects__top
+          正答一覧
+        - @testresult.test.questions.each.with_index do |question, i|
+          .testresult__corrects__correct
+            = "#{i+1}問目 #{question.testwords.find_by(correct: 1).word}"
 .sideBar
