@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "wordbooks#index"
   resources :wordbooks do
     resources :words, except: [:index, :show]
+    resources :tests, only: :show do
+      resources :testresults, only: :create
+    end
   end
   resources :users, only: [:show]
 end
