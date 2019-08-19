@@ -1,20 +1,15 @@
 .main--showTest{
   & .testcards{
-    width: 800px;
+    width: 900px;
     margin: 0 auto;
     & .testcard{
-      @include card_style(90px,700px);
+      @include card_style(90px,850px);
       &__top{
         @include font_data(black,22px);
       }
-      &__flexbox{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        &__word{
-          @include font_data(black,20px,bold);
-          width: 20%;
-        }
+      &__word{
+        @include font_data(black,20px,bold);
+        width: 23%;
       }
       &__submit{
         @include reset_form;
