@@ -2,6 +2,8 @@ class TestresultsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root, only: :create
   def create
+    @testresult = Testresult.create(testresult_params)
+    @testresult.update(score: calc_score(@testresult))
   end
 
   def show
