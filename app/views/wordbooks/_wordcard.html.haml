@@ -1,5 +1,5 @@
 .wordcard
-  - if user_signed_in? 
+  - if user_signed_in? && current_user.id == word.wordbook.user.id
     .wordcard__edit
       = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
     .wordcard__destroy

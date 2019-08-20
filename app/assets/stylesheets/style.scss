@@ -48,7 +48,6 @@
   background-color: $main-color;
   width: 75%;
   min-height: $main-height;
-  height: auto;
   float: left;
 }
 
@@ -60,4 +59,10 @@
   height: 100vh;
   right: 0;
   z-index: 0;
+}
+
+.flexbox{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

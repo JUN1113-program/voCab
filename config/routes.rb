@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show] do
-    resources :testresults, only: :show
+    resources :testresults, only: [:index,:show]
   end
 end

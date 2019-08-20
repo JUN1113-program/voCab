@@ -1,7 +1,8 @@
 class WordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_wordbook, only: [:new,:edit,:update,:destroy]
+  before_action :set_wordbook
   before_action :set_word, only: [:edit,:update,:destroy]
+  before_action :his_wordbook?
 
   def new
     @word = @wordbook.words.new
@@ -38,5 +39,8 @@ class WordsController < ApplicationController
   end
   def set_word
     @word = @wordbook.words.find(params[:id])
+  end
+  def his_wordbook?
+    redirect_to root_path unless current_user.id == @wordbook.user.id
   end
 end

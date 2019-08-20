@@ -1,6 +1,11 @@
 class TestresultsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root, only: :create
+  before_action :user_eq?, only: [:show, :index]
+  def index
+    @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
+  end
+
   def create
     @testresult = Testresult.create(testresult_params)
     selections_params.each do |select|
@@ -11,9 +16,9 @@ class TestresultsController < ApplicationController
   end
 
   def show
-    @testresults = Testresult.where(user_id: current_user.id).order("id DESC")
+    @testresult = Testresult.find(params[:id])
   end
-
+  
   private
   def testresult_params
     params.permit(:test_id).merge(user_id: current_user.id,score: 0)
@@ -33,5 +38,9 @@ class TestresultsController < ApplicationController
 
   def move_to_root
     redirect_to root_path unless params[:testresult]
+  end
+
+  def user_eq?
+    redirect_to root_path unless current_user.id == params[:user_id].to_i
   end
 end
