@@ -1,0 +1,14 @@
+.main--indexTestresult{
+  .testresults{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    & a{
+      @include reset_a-tag(black);
+    }
+    & .testresult{
+      @include card_style(80px,300px,white,50%);
+    }
+  }
+}
