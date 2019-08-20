@@ -1,20 +1,20 @@
 .main
-  .testresult
-    .testresult__score
+  .testresult-detail
+    .testresult-detail__score
       = "アナタの得点は#{@testresult.score}点です！！！！！"
-    .testresult__title
+    .testresult-detail__title
       = "単語帳 #{@testresult.test.wordbook.title}のテストを解いたよ！"
     .flexbox.flexbox--start
-      .testresult__words
-        .testresult__words__top
+      .testresult-detail__words
+        .testresult-detail__words__top
           あなたの解答一覧
         - @testresult.testwords.each.with_index do |testword, i|
-          .testresult__words__word
+          .testresult-detail__words__word
             = "#{i+1}問目 #{testword.word}"
-      .testresult__corrects
-        .testresult__corrects__top
+      .testresult-detail__corrects
+        .testresult-detail__corrects__top
           正答一覧
         - @testresult.test.questions.each.with_index do |question, i|
-          .testresult__corrects__correct
+          .testresult-detail__corrects__correct
             = "#{i+1}問目 #{question.testwords.find_by(correct: 1).word}"
 .sideBar
