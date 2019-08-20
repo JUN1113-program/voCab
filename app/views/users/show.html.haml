@@ -15,3 +15,4 @@
     .wordbooks
       ここにお気に入りのカード一覧が表示されます
 .sideBar.sideBar--showUser
+  = link_to "過去のテスト結果", user_testresults_path(current_user.id) if user_signed_in? && current_user.id == @user.id
