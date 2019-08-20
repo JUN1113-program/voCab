@@ -1,4 +1,4 @@
-.main--indexTestresult{
+.sideBar--indexTestresult{
   .testresults{
     display: flex;
     flex-flow: row wrap;
@@ -11,4 +11,8 @@
       @include card_style(80px,300px,white,50%);
     }
   }
+}
+
+.wrapar{
+  width: 600px;
 }

@@ -1,4 +1,5 @@
 .main.main--indexTestresult
+.sideBar.sideBar--indexTestresult
   .testresults
     - @testresults.each.with_index do |testresult,i|
       .testresult
@@ -7,4 +8,3 @@
         .testresult__time
           = l(testresult.created_at, format: :long)
         = link_to "取り組んだテスト: #{testresult.test.wordbook.title}", user_testresult_path(current_user.id,testresult.id), class:"testresult__title"
-.sideBar
