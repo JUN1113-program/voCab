@@ -83,4 +83,39 @@ $(function(){
     });
   }
 
+  //初期のテスト結果グラフを出力する
+  function outputchart(){
+    var user_id = $(".main--indexTestresult")[0].dataset.id;
+    var url = `/users/${user_id}/api/testresults`;
+    $.ajax({
+      url: url
+    })
+    .done(function(testresults){
+      testresults.forEach(function(testresult){
+        appendHTML(testresult.id);
+        createChart($(`#myChart${testresult.id}`)[0], testresult.labels, testresult.label, testresult.data, "line");
+      });
+    })
+    .fail(function(testresults){
+      window.alert("グラフの生成に失敗しました");
+    });
+  }
+
+  // 初期のハイスコアグラフとアベレージスコアグラフを出力する
+  function putscorechart(){
+    var user_id = $(".main--indexTestresult")[0].dataset.id;
+    var url = `/users/${user_id}/api/testresults/new`;
+    $.ajax({
+      url: url
+    })
+    .done(function(score){
+      var color = createColors(score.labels.length)
+      createChart($(`#chart__highScore`)[0], score.labels, "最高得点", score.high_scores, "polarArea", 0, 1,color,color);
+      createChart($(`#chart__averageScore`)[0], score.labels, "平均点", score.average_scores, "polarArea", 0, 1,color,color);
+    })
+    .fail(function(){
+      window.alert("グラフの生成に失敗しました");
+    });
+  }
+
 
