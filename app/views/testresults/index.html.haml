@@ -1,6 +1,18 @@
-.main.main--indexTestresult
-  .wrapar
-    %canvas#myChart
+- id = current_user.id
+.main.main--indexTestresult{"data-id": id}
+  .charts
+    .wrapar
+      %canvas#chart__highScore
+    .wrapar
+      %canvas#chart__averageScore
+  .addChart__buttons
+    .addChart__button
+      = button_tag "line"
+    .addChart__button
+      = button_tag "bar"
+    .addChart__button
+      = button_tag "radar"
+  .charts.charts--empty
 .sideBar.sideBar--indexTestresult
   .testresults
     - @testresults.each.with_index do |testresult,i|
