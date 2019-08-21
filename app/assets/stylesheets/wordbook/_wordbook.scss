@@ -10,7 +10,7 @@
       @include text_center(150px,center);
       @include font_data(black,30px,bold);
       & a{
-        @include reset_a-tag(black); 
+        @include reset_a-tag(black);
       }
     }
     &__viewed{

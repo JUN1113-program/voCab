@@ -1,4 +1,19 @@
-.main.main--indexTestresult
+- id = current_user.id
+.main.main--indexTestresult{"data-id": id}
+  .charts
+    .wrapar
+      %canvas#chart__highScore
+    .wrapar
+      %canvas#chart__averageScore
+  .addChart__buttons
+    .addChart__button
+      = button_tag "line"
+    .addChart__button
+      = button_tag "bar"
+    .addChart__button
+      = button_tag "radar"
+  .charts.charts--empty
+.sideBar.sideBar--indexTestresult
   .testresults
     - @testresults.each.with_index do |testresult,i|
       .testresult
@@ -7,4 +22,3 @@
         .testresult__time
           = l(testresult.created_at, format: :long)
         = link_to "取り組んだテスト: #{testresult.test.wordbook.title}", user_testresult_path(current_user.id,testresult.id), class:"testresult__title"
-.sideBar

@@ -18,3 +18,4 @@
           .testresult-detail__corrects__correct
             = "#{i+1}問目 #{question.testwords.find_by(correct: 1).word}"
 .sideBar
+  = link_to "このテストをもう一度受験する", wordbook_test_path(@testresult.test.wordbook.id, @testresult.test.id) if @testresult.test
