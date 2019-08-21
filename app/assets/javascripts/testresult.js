@@ -123,3 +123,25 @@ $(function(){
     putscorechart();
   }
 
+  // ボタンが押された際にグラフの種類を変更する
+  $("button").on("click", function(){
+    var color = createColors();
+    var type = $(this).text();
+    var axes = type == "radar" ? 0 : 1 ;
+    var user_id = $(".main--indexTestresult")[0].dataset.id;
+    var url = `/users/${user_id}/api/testresults`;
+    $.ajax({
+      url: url
+    })
+    .done(function(testresults){
+      $(".charts--empty").html("");
+      testresults.forEach(function(testresult){
+        appendHTML(testresult.id);
+        createChart($(`#myChart${testresult.id}`)[0], testresult.labels, testresult.label, testresult.data, type, axes, 0, color,color);
+      });
+    })
+    .fail(function(data){
+      window.alert("グラフの生成に失敗しました");
+    });
+  });
+});
