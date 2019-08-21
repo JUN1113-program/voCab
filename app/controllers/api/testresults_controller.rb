@@ -3,6 +3,9 @@ class Api::TestresultsController < ApplicationController
 
   def index
     
+  def new
+  end
+
   private
   def set_testresults
     @testresults = current_user.testresults
