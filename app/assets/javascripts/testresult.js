@@ -118,4 +118,8 @@ $(function(){
     });
   }
 
+  if (window.location.pathname.match("/users/.+/testresults")){
+    outputchart();
+    putscorechart();
+  }
 
