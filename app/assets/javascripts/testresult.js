@@ -2,6 +2,15 @@ $(function(){
   var ctx = $("#myChart")[0];
   var myChart = new Chart(ctx, {
       type: 'line',
+  // グラフの土台を作成する
+  function appendHTML(id){
+    var HTML = `
+    <div class = "wrapar">
+      <canvas id='myChart${id}'></canvas>
+    </div>
+    `
+    $(".charts--empty").append(HTML);
+  }
       data: {
           labels: [1,2,3,4,5],
           datasets: [{
