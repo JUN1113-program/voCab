@@ -1,7 +1,4 @@
 $(function(){
-  var ctx = $("#myChart")[0];
-  var myChart = new Chart(ctx, {
-      type: 'line',
   // グラフの土台を作成する
   function appendHTML(id){
     var HTML = `
