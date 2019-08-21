@@ -11,6 +11,21 @@ $(function(){
     `
     $(".charts--empty").append(HTML);
   }
+
+  function createColors(num = 1){
+    var colors = []
+    if(num == 1){
+      color = "rgba(" + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", 0.7)";
+      return color
+    }
+    for(num; num > 0; num--){
+      color = "rgba(" + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", 0.7)";
+      colors.push(color)
+    }
+    console.log(colors);
+    return colors;
+  }
+
       data: {
           labels: [1,2,3,4,5],
           datasets: [{
