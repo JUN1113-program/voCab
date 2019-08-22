@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "wordbooks#index"
   resources :wordbooks do
     resources :words, except: [:show]
+    namespace :api do
+      resources :words, only: [:index], defaults: { format: 'json' }
+    end
     resources :tests, only: :show do
       resources :testresults, only: :create
     end
