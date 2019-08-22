@@ -9,11 +9,16 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.create(word_params)
-    if params[:commit] == "restart"
+    @word = Word.new(word_params)
+
+    if @word.save
+      if params[:commit] == "restart"
+        redirect_to new_wordbook_word_path(params[:wordbook_id])
+      else
+        redirect_to wordbook_path(params[:wordbook_id])
+      end
+    else
       redirect_to new_wordbook_word_path(params[:wordbook_id])
-    else 
-      redirect_to wordbook_path(params[:wordbook_id])
     end
   end
 
