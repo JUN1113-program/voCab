@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "wordbooks#index"
   resources :wordbooks do
-    resources :words, except: [:index, :show]
+    resources :words, except: [:show]
     resources :tests, only: :show do
       resources :testresults, only: :create
     end
