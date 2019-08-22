@@ -1,9 +1,11 @@
 class WordsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   before_action :set_wordbook
   before_action :set_word, only: [:edit,:update,:destroy]
-  before_action :his_wordbook?
+  before_action :his_wordbook?, except: :index
 
+  def index
+  end
   def new
     @word = @wordbook.words.new
   end
