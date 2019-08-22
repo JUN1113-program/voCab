@@ -1,0 +1,28 @@
+
+.main--showWordBook{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  & .wordcards{
+    width: 100%;
+    & .wordcard{
+      @include card_style(600px,80%);
+      @include font_data(black,100px,bold);
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__word{
+        overflow-wrap: break-word;
+      }
+    }
+  }
+  & .button__arrow{
+    width: 50px;
+    @include reset_form();
+    color: gray;
+    & :hover{
+      color: black;
+    }
+  }
+}
