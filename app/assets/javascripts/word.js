@@ -47,4 +47,5 @@ $(function(){
     appendHTML(cards[count],"front");
   });
 
+  showWordBook ? wordcard() : null ;
 });
