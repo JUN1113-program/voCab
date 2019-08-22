@@ -1,6 +1,11 @@
-.main.main--showWordBook
-  .wordcards
-    = render partial: "wordcard",collection: @wordbook.words, as: :word
-
-.sideBar.sideBar--showWordBook
-  = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id) if @wordbook.test
+- id = @wordbook.id
+- if @wordbook.words.first
+  .main.main--showWordBook{"data-id": id}
+    = button_tag class:"button__arrow button__arrow--left" do
+      = fa_icon "chevron-left 5x"
+    .wordcards
+      .wordcard.wordcard--front
+        .wordcard__word
+          = @wordbook.words.first.front
+    = button_tag class:"button__arrow button__arrow--right" do
+      = fa_icon "chevron-right 5x"

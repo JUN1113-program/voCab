@@ -1,19 +1,26 @@
 class WordsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   before_action :set_wordbook
   before_action :set_word, only: [:edit,:update,:destroy]
-  before_action :his_wordbook?
+  before_action :his_wordbook?, except: :index
 
+  def index
+  end
   def new
     @word = @wordbook.words.new
   end
 
   def create
-    @word = Word.create(word_params)
-    if params[:commit] == "restart"
+    @word = Word.new(word_params)
+
+    if @word.save
+      if params[:commit] == "restart"
+        redirect_to new_wordbook_word_path(params[:wordbook_id])
+      else
+        redirect_to wordbook_path(params[:wordbook_id])
+      end
+    else
       redirect_to new_wordbook_word_path(params[:wordbook_id])
-    else 
-      redirect_to wordbook_path(params[:wordbook_id])
     end
   end
 
