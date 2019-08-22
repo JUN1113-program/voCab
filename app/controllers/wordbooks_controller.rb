@@ -10,8 +10,12 @@ class WordbooksController < ApplicationController
   end
 
   def create
-    @wordbook = Wordbook.create(wordbook_params.merge(viewed: 0))
-    redirect_to new_wordbook_word_path(@wordbook.id)
+    @wordbook = Wordbook.new(wordbook_params.merge(viewed: 0))
+    if @wordbook.save
+      redirect_to new_wordbook_word_path(@wordbook.id)
+    else
+      redirect_to new_wordbook_path
+    end
   end
 
   def edit
