@@ -48,4 +48,12 @@ $(function(){
   });
 
   showWordBook ? wordcard() : null ;
+
+  // 裏表を入れ替える
+  $(document).on("click",".wordcard--front",function(){
+    appendHTML(cards[count],"reverse");
+  })
+  $(document).on("click",".wordcard--reverse",function(){
+    appendHTML(cards[count],"front");
+  })
 });
