@@ -10,8 +10,9 @@
 // スタイルシートの宣言
 @import "style";
 @import "wordbook/wordbook";
-@import "wordbook/wordcard";
 @import "wordbook/inputform";
+@import "wordbook/show";
+@import "word/wordcard";
 @import "user/show";
 @import "test/show";
 @import "testresult/show";
