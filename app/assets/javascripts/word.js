@@ -17,4 +17,18 @@ $(function(){
       window.alert("error");
     });
   }
+
+  // HTMLを作成する
+  function appendHTML(word, onoff){
+    var put = onoff == "front" ? word.front : word.reverse;
+    var HTML = `
+    <div class = "wordcard wordcard--${onoff}">
+      <div class = "wordcard__word">
+        ${put}
+      </div>
+    </div>
+    `
+    $(".wordcards").html(HTML);
+  }
+
 });
