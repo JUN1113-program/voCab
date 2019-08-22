@@ -43,8 +43,9 @@ $(function(){
     count++;
     if(count >= cards.length){
       window.location.pathname = `/wordbooks/${id}/words`;
+    }else if(count < cards.length){
+      appendHTML(cards[count],"front");
     }
-    appendHTML(cards[count],"front");
   });
 
   showWordBook ? wordcard() : null ;
