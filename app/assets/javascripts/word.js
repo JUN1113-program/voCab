@@ -31,4 +31,20 @@ $(function(){
     $(".wordcards").html(HTML);
   }
 
+  // 左矢印が押された際に前の単語を表示する
+  $(".button__arrow--left").on("click",function(){
+    if(count > 0){
+      count--
+    }
+    appendHTML(cards[count],"front");
+  });
+  // 右矢印が押された際に前の単語を表示する
+  $(".button__arrow--right").on("click",function(){
+    count++;
+    if(count >= cards.length){
+      window.location.pathname = `/wordbooks/${id}/words`;
+    }
+    appendHTML(cards[count],"front");
+  });
+
 });
