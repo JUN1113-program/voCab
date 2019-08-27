@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       resources :testresults, only: :create
     end
   end
+  namespace :api do
+    resources :wordbooks, only: [:update,:destroy], defaults: { format: 'json' }
+  end
   resources :users, only: [:show] do
     resources :testresults, only: [:index,:show]
     namespace :api do
