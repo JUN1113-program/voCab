@@ -16,4 +16,11 @@ $(function(){
       window.alert("error");
     });
   }
+
+  $(".wordbook__fav").on("click",function(){
+    var id = $(this).parent()[0].dataset.id;
+    var button = $(this).find("i");
+    var status = button[0].classList[0];
+    like(id, status, button);
+  });
 });
