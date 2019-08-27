@@ -1,5 +1,9 @@
 .main.main--indexWordBook
   .wordbooks
-    = render partial: "wordbook",collection: @wordbooks
+    - @wordbooks.each do |wordbook|
+      - if user_signed_in? && fav = wordbook.favorites.find_by(user_id: current_user.id)
+        = render partial: "wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
+      - else
+        = render partial: "wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
 .sideBar.sideBar--indexWordBook
   indexareaです
