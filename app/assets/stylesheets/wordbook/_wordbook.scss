@@ -51,6 +51,13 @@
       top: 0;
       margin-right: 5px;
     }
+    &__favorite_count{
+      @include font_data(gray,12px,500);
+      position: absolute;
+      right: 0;
+      bottom: 28px;
+      margin-right: 5px;
+    }
     &__edit{
       @include font_data(gray,20px,bold);
       & a{
