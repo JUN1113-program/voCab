@@ -2,10 +2,10 @@
 - if @wordbook.words.first
   .main.main--showWordBook{"data-id": id}
     = button_tag class:"button__arrow button__arrow--left" do
-      = fa_icon "chevron-left 5x"
+      = icon('fas fa-5x', 'chevron-left')
     .wordcards
       .wordcard.wordcard--front
         .wordcard__word
           = @wordbook.words.first.front
     = button_tag class:"button__arrow button__arrow--right" do
-      = fa_icon "chevron-right 5x"
+      = icon("fas fa-5x","chevron-right")
