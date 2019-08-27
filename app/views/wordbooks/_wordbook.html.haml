@@ -1,4 +1,7 @@
-.wordbook
+- if defined? fav
+  - fav_id = fav.wordbook.id
+- id = wordbook.id
+.wordbook{"data-id": id}
   .wordbook__title
     = link_to "#{wordbook.title.truncate(15)}", wordbook_path(wordbook.id)
   .wordbook__viewed
@@ -13,7 +16,15 @@
   .wordbook__reference
     = "参照元: "
     = wordbook.reference.present? ? wordbook.reference : "なし"
-
+  .wordbook__favorite_count
+    = "お気に入り: #{favorite_count}"
+  - if user_signed_in?
+    .wordbook__fav{"data-fav": fav_id}
+      = button_tag do
+        - if fav_id == id
+          = icon("fas fa-3x", "bookmark")
+        - else
+          = icon('far fa-3x', 'bookmark')
   - if user_signed_in? && current_user.id == wordbook.user.id
     .wordbook__edit
       = link_to "Edit", edit_wordbook_path(wordbook.id)
