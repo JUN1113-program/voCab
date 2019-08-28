@@ -25,5 +25,5 @@
       .field
         = recaptcha_tags callback: 'recaptchaCallbackFunction'
       .actions
-        = f.submit "Sign up"
+        = f.submit "Sign up", id:"deviseSubmit",disabled: "disabled"
     = render "devise/shared/links"
