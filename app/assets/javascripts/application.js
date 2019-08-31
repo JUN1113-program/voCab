@@ -15,3 +15,8 @@
 //= require activestorage
 //= require Chart.min
 //= require_tree .
+
+function recaptchaCallbackFunction(){
+  var con = $("#deviseSubmit").attr('disabled', false);
+  console.log(con);
+};
