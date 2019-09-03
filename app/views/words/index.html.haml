@@ -3,4 +3,8 @@
     = render partial: "wordcard",collection: @wordbook.words, as: :word
 
 .sideBar.sideBar--indexWord
-  = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id) if @wordbook.test
+  - if @wordbook.test && user_signed_in?
+    = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id)
+    %br
+    = link_to "このテストを編集する", edit_wordbook_test_path(@wordbook.id, @wordbook.test.id)
+  = link_to "このテストを作成する", new_wordbook_test_path(@wordbook.id) unless @wordbook.test
