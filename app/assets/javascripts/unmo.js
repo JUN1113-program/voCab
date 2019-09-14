@@ -22,4 +22,10 @@ $(function(){
   $(".unmo__form__button").on("click",function(){
     callUnmo();
   })
+  $(".unmo__form__input").keypress(function(e){
+    if(e.which == 13) {
+      callUnmo();
+      return false;
+    }
+  });
 });
