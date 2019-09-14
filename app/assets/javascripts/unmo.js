@@ -24,6 +24,11 @@ $(function(){
     random =  Math.floor(Math.random()*10);
     return random;
   }
+  // 画像をランダムに差し替える
+  function changeImage(num){
+    icon.attr("src",`/assets/man${[num]}.png`);
+  }
+
   $(".unmo__form__button").on("click",function(){
     callUnmo();
   })
