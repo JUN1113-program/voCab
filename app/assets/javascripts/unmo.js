@@ -19,4 +19,7 @@ $(function(){
     });
   }
 
+  $(".unmo__form__button").on("click",function(){
+    callUnmo();
+  })
 });
