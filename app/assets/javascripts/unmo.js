@@ -19,6 +19,17 @@ $(function(){
     });
   }
 
+  //unmoを呼び出す
+  function callUnmo(){
+    value = input.val();
+    if(value == ""){
+      responseFiled.html("無言は怖いよ...");
+      changeImage(2);
+    }else{
+      unmo(value);
+    }
+  }
+
   //乱数を生成する
   function randomNum(){
     random =  Math.floor(Math.random()*10);
