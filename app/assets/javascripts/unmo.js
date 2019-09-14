@@ -19,6 +19,11 @@ $(function(){
     });
   }
 
+  //乱数を生成する
+  function randomNum(){
+    random =  Math.floor(Math.random()*10);
+    return random;
+  }
   $(".unmo__form__button").on("click",function(){
     callUnmo();
   })
