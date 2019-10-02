@@ -3,17 +3,30 @@
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
     %title voCab
+    %link{href: "https://fonts.googleapis.com/earlyaccess/kokoro.css", rel: "stylesheet"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     %header.header
-      = image_tag "logo.png", class:"header__logo"
-      = link_to "voCab", root_path, class: "header__title"
-      - if user_signed_in?
-        = link_to "Mypage: #{current_user.nickname}", user_path(current_user.id), class: "header__username"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__logout"
-        = link_to "新規作成", new_wordbook_path, class:"header__new"
-      = link_to "ログイン", new_user_session_path, class: "header__login" unless user_signed_in?
+      = link_to root_path, class: "header__title" do
+        = image_tag "logo.png", class:"header__title__logo"
+        voCab
+      .header__icons
+        - if user_signed_in?
+          = link_to new_wordbook_path, class:"header__icons__icon" do
+            = icon('fas fa-3x', 'edit')
+            %p.header__icons__icon__explain 新規作成
+          = link_to user_path(current_user.id), class: "header__icons__icon" do
+            = icon('fas fa-3x', 'user')
+            %p.header__icons__icon__explain マイページ
+          = link_to destroy_user_session_path, method: :delete, class: "header__icons__icon" do
+            = icon('fas fa-3x', 'sign-out-alt')
+            %p.header__icons__icon__explain ログアウト
+        - else
+          = link_to new_user_session_path, class: "header__icons__icon" do
+            = icon('fas fa-3x', 'sign-in-alt')
+            %p.header__icons__icon__explain ログイン
+
     = yield
