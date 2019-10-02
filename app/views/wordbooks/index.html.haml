@@ -5,5 +5,8 @@
         = render partial: "wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
       - else
         = render partial: "wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
+  .pagenation
+    .pagenation__page
+      = paginate(@wordbooks)
 .sideBar.sideBar--indexWordBook
   indexareaです
