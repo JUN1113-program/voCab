@@ -2,7 +2,7 @@ class WordbooksController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_wordbook, only: [:edit,:update,:show,:destroy]
   def index
-    @wordbooks = Wordbook.all
+    @wordbooks = Wordbook.order("created_at DESC").page(params[:page]).per(8).includes(:user)
   end
 
   def new
