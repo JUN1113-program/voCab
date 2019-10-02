@@ -6,5 +6,6 @@
   - if @wordbook.test && user_signed_in?
     = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id)
     %br
-    = link_to "このテストを編集する", edit_wordbook_test_path(@wordbook.id, @wordbook.test.id)
+    - if @wordbook.user.id == current_user&.id
+      = link_to "このテストを削除する", wordbook_test_path(@wordbook.id, @wordbook.test.id), method: :delete
   = link_to "このテストを作成する", new_wordbook_test_path(@wordbook.id) unless @wordbook.test
