@@ -19,4 +19,7 @@ Rails.application.routes.draw do
       resources :testresults, only: [:index,:new], defaults: { format: 'json' }
     end
   end
+  namespace :api do
+    resources :unmos, only: :index, defaults: { format: 'json' }
+  end
 end

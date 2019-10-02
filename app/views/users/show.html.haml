@@ -24,3 +24,11 @@
           = render partial: "wordbooks/wordbook",locals: { wordbook: faved.wordbook, favorite_count: faved.wordbook.favorites.length}
 .sideBar.sideBar--showUser
   = link_to "過去のテスト結果", user_testresults_path(current_user.id) if user_signed_in? && current_user.id == @user.id
+  .unmo
+    = image_tag "man0.png", class:"unmo__icon"
+    .unmo__resp
+      お暇なときに話しかけてね
+    .unmo__form
+      %input.unmo__form__input
+      = button_tag class:"unmo__form__button" do
+        = icon("far fa-2x","comment-alt")

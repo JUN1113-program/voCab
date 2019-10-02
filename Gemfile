@@ -70,3 +70,5 @@ gem "carrierwave"
 gem 'kaminari'
 gem 'chart-js-rails'
 gem "recaptcha", require: "recaptcha/rails"
+gem "mecab"
+gem "natto"
