@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_wordbook
   def new
     @test = Test.new
   end
@@ -23,8 +24,13 @@ class TestsController < ApplicationController
   end
 
   def show
-    @wordbook = Wordbook.find(params[:wordbook_id])
     @test = @wordbook.test
     @testresult = @test.testresults.new
   end
+
+  private
+  def set_wordbook
+    @wordbook = Wordbook.find(params[:wordbook_id])
+  end
+
 end
