@@ -42,4 +42,8 @@ class TestsController < ApplicationController
     return wordsArray
   end
 
+  def test_params
+    params.permit(:wordbook_id).merge(times: 0)
+  end
+
 end
