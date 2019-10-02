@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_wordbook
+  before_action :another_user?, only: :destroy
   def new
     @test = Test.new
   end
@@ -46,4 +47,7 @@ class TestsController < ApplicationController
     params.permit(:wordbook_id).merge(times: 0)
   end
 
+  def another_user?
+    redirect_to root_path unless current_user&.id == @wordbook.user.id
+  end
 end
