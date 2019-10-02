@@ -8,7 +8,7 @@
           = "#{@user.nickname}のページ"
     .wordbooks
       - @user.wordbooks.each do |wordbook|
-        - if fav = wordbook.favorites.find_by(user_id: current_user.id)
+        - if fav = wordbook.favorites.find_by(user_id: current_user&.id)
           = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
         - else
           = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
@@ -17,7 +17,7 @@
       .showUser__bar__fav
         お気に入り一覧
     .wordbooks
-      - @favorites.each do |faved|
+      - @favorites&.each do |faved|
         - if fav = faved.wordbook.favorites.find_by(user_id: current_user.id)
           = render partial: "wordbooks/wordbook",locals: { wordbook: faved.wordbook, fav: fav, favorite_count: faved.wordbook.favorites.length }
         - else
