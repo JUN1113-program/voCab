@@ -1,0 +1,10 @@
+.main.mainNewTest
+  = form_for [@wordbook,@test] do |f|
+    - @wordbook.words.each.with_index do |word,i|
+      = f.label word.front
+      %br
+      = f.text_field :word, placeholder:"正解を入力", name: "words[t#{i}][]"
+      - 3.times do
+        = f.text_field :word, placeholder:"誤答を入力", name: "words[t#{i}][]"
+      %br
+    = f.submit "テストを作成"
