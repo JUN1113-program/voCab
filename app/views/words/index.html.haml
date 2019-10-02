@@ -3,4 +3,9 @@
     = render partial: "wordcard",collection: @wordbook.words, as: :word
 
 .sideBar.sideBar--indexWord
-  = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id) if @wordbook.test
+  - if @wordbook.test && user_signed_in?
+    = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id)
+    %br
+    - if @wordbook.user.id == current_user&.id
+      = link_to "このテストを削除する", wordbook_test_path(@wordbook.id, @wordbook.test.id), method: :delete
+  = link_to "このテストを作成する", new_wordbook_test_path(@wordbook.id) unless @wordbook.test
