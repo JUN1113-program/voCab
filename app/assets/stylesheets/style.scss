@@ -1,60 +1,52 @@
 .header{
   width: 100%;
   height: $header-height;
-  background-color: azure;
-  box-shadow: 0 0 1px gray;
+  background-color: $light;
+  box-shadow: 0 0 1px $light;
   position: fixed;
   z-index: 10;
-  &__logo{
-    height: 60px;
-    margin: 5px 10px;
-    float: left;
-  }
   &__title{
-    @include reset_a-tag(black);
-    @include font_data(black,30px,bold);
+    @include reset_a-tag($black);
+    @include font_data($black,30px,bold);
     float: left;
-    line-height: 70px;
+    line-height: $header-height;
+    &__logo{
+      height: calc(#{$header-height} - 10px);
+      margin: 5px 10px;
+      float: left;
+    }
   }
-  &__username{
-    @include text_center(70px,center);
-    @include reset_a-tag(black);
-    @include font_data(black,20px,bold);
+  &__icons{
     float: right;
-    margin: 0 10px;
-  }
-  &__login{
-    @include reset_a-tag(gray);
-    float: right;
-    margin: 0 10px;
-    line-height: 70px;
-  }
-  &__logout{
-    @include reset_a-tag(gray);
-    float: right;
-    margin: 0 10px;
-    line-height: 70px;
-  }
-  &__new{
-    @include reset_a-tag(gray);
-    float: right;
-    margin: 0 10px;
-    line-height: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-right: 20px;
+    &__icon{
+      @include reset_a-tag($black);
+      margin: 10px;
+      text-align: center;
+      &__explain{
+        font-size: 12px;
+      }
+      &:hover{
+        text-shadow: 0 0 2px gray;
+      }
+    }
   }
 }
 
 .main{
-  padding-top: 70px;
+  padding-top: $header-height;
   background-color: $main-color;
   width: 75%;
-  min-height: $main-height;
+  height: $main-height;
   float: left;
 }
 
 .sideBar{
   position: fixed;
-  padding-top: 70px;
-  background-color: $light-green;
+  padding-top: $header-height;
+  background-color: $blue;
   width: 25%;
   height: 100vh;
   right: 0;
