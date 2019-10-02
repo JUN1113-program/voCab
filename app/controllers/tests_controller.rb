@@ -17,6 +17,11 @@ class TestsController < ApplicationController
     redirect_to wordbook_words_path(@wordbook.id)
   end
 
+  def destroy
+    @wordbook.test.destroy
+    redirect_to wordbook_words_path(@wordbook.id)
+  end
+
   def show
     @wordbook = Wordbook.find(params[:wordbook_id])
     @test = @wordbook.test
