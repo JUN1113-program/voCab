@@ -33,4 +33,13 @@ class TestsController < ApplicationController
     @wordbook = Wordbook.find(params[:wordbook_id])
   end
 
+  def testword_params
+    wordsArray = []
+    wordHash =  params.permit(words:{}).require(:words)
+    wordHash.each do |key, value|
+      wordsArray << value
+    end
+    return wordsArray
+  end
+
 end
