@@ -21,6 +21,9 @@
           = link_to user_path(current_user.id), class: "header__icons__icon" do
             = icon('fas fa-3x', 'user')
             %p.header__icons__icon__explain マイページ
+          = link_to user_testresults_path(current_user.id), class: "header__icons__icon" do
+            = icon('fas fa-3x', 'chart-bar')
+            %p.header__icons__icon__explain テスト結果
           = link_to destroy_user_session_path, method: :delete, class: "header__icons__icon" do
             = icon('fas fa-3x', 'sign-out-alt')
             %p.header__icons__icon__explain ログアウト
