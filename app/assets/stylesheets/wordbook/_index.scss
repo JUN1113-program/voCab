@@ -1,0 +1,17 @@
+.main--indexWordBook{
+  & .pagenation{
+    text-align: center;
+    @include font_data($black, 20px);
+    line-height: 18px;
+    & a{
+      @include reset_a-tag($black);
+      &:hover{
+        border-bottom: dotted 3px $black;
+      }
+    }
+  }
+}
+
+.sideBar--indexWordBook{
+  color: $white;
+}
