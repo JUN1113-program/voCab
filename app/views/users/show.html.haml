@@ -1,11 +1,13 @@
 .main.main--showUser
-  .showUser
+  .showUser.showUser--wide
     .showUser__bar
-      .showUser__bar__name
+      .showUser__bar__title
         - if user_signed_in? && current_user.id == @user.id
-          Mypage
+          = icon('fas fa', 'user')
+          自分の単語帳
         - else
-          = "#{@user.nickname}のページ"
+          = icon('fas fa', 'user-friends')
+          = "#{@user.nickname}さんの単語帳"
     .wordbooks
       - @user.wordbooks.each do |wordbook|
         - if fav = wordbook.favorites.find_by(user_id: current_user&.id)
@@ -14,13 +16,12 @@
           = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
   .showUser
     .showUser__bar
-      .showUser__bar__fav
-        お気に入り一覧
+      .showUser__bar__title
+        = icon("fas fa", "bookmark")
+        お気に入り
     .wordbooks
       - @favorites&.each do |faved|
         - if fav = faved.wordbook.favorites.find_by(user_id: current_user.id)
           = render partial: "wordbooks/wordbook",locals: { wordbook: faved.wordbook, fav: fav, favorite_count: faved.wordbook.favorites.length }
         - else
           = render partial: "wordbooks/wordbook",locals: { wordbook: faved.wordbook, favorite_count: faved.wordbook.favorites.length}
-.sideBar.sideBar--showUser
-  = link_to "過去のテスト結果", user_testresults_path(current_user.id) if user_signed_in? && current_user.id == @user.id
