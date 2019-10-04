@@ -1,12 +1,16 @@
 = form_for wordbook,html:{class:"inputWordBook"} do |f|
-  .inputWordBook__title
-    = f.label :title, "単語帳の名前"
-    = f.text_field :title, value: wordbook.title
-  .inputWordBook__reference
+  .inputWordBook__form
+    = f.label :title, "単語帳のタイトル"
+    %span.require
+      必須
+    = f.text_field :title, class: "inputWordBook__form__input", value: wordbook.title, autocomplete: "off", placeholder: "13文字以内",  maxlength: "13", required: "on", autofocus: "on"
+  .inputWordBook__form
     = f.label :reference, "参照元"
-    = f.text_field :reference, value: wordbook.reference
+    %span.free
+      任意
+    = f.text_field :reference, class: "inputWordBook__form__input", value: wordbook.reference, autocomplete: "off", placeholder: "20文字以内",  maxlength: "20"
   .inputWordBook__share
-    = f.label :share, "公開：０、非公開：１"
-    = f.number_field :share, value: wordbook.share
+    = f.check_box :share, value: wordbook.share
+    = f.label :share, "非公開にする"
   .inputWordBook__submit
     = f.submit
