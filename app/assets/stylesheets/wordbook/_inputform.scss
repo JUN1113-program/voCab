@@ -1,12 +1,42 @@
 .inputWordBook{
-  &__title{
-    @include card_style(100px,200px,#9af583,50%);
+  border: 1px solid $black;
+  width: 400px;
+  margin: 30px auto;
+  color: $black;
+  padding: 20px;
+  box-sizing: border-box;
+  &__form{
+    & .require{
+      color: red;
+    }
+    & .free{
+      color: gray;
+    }
+    & label{
+      font-weight: bold;
+    }
+    &__input{
+      @include reset_form;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      border: 1px solid $black;
+      padding-left: 10px;
+      width: 80%;
+      margin: 10px auto;
+      &:focus{
+        border: 1px solid red;
+      }
+    }
   }
-  &__reference{
-    @include card_style(100px,200px,#9af583,50%);
-  }
-  &__share{
-    @include card_style(100px,200px,#9af583,50%);
+  &__submit{
+    display: flex;
+    justify-content: flex-end;
+    & input{
+      @include reset_form;
+      color: $black;
+      border: 1px solid $black;
+      padding: 10px;
+    }
   }
 }
-
