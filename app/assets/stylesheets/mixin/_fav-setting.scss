@@ -14,9 +14,9 @@
 
 // ノート風のスタイル
 @mixin noted($noted-height: 500px, $noted-width: 500px){
-  border: double 5px black;
+  border: double 5px $black;
   margin: 0 auto;
-  box-shadow: 0 0 10px gray;
+  box-shadow: 0 0 5px $black;
   background-color: white;
   max-width: $noted-width;
   min-height: $noted-height;
@@ -29,4 +29,18 @@
   background-color: $color;
   box-shadow: 1px 1px 2px darken($color, $darken);
   margin: $margin-height $margin-width;
+}
+
+@mixin devise_form {
+  margin: 30px 0px;
+  & input{
+    @include reset_form();
+    border: 1px solid $black;
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    &:focus{
+      border: solid 1px $blue;
+    }
+  }
 }

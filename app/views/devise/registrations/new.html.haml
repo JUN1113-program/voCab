@@ -1,29 +1,27 @@
-.main.main--devise
-  .devise.devise--signup
-    %h2 Sign up
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+.devise.devise--registrations
+  .devise__body
+    %h2 ユーザー登録
+    = form_for(resource, as: resource_name, class: "devise__form", url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
-      .field
-        = f.label :nickname
+      .field.devise__body__inputForm
+        = f.label :nickname, "ニックネーム"
         %br/
-        = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-      .field
-        = f.label :email
+        = f.text_field :nickname, autofocus: true
+      .field.devise__body__inputForm
+        = f.label :email, "メールアドレス"
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
+        = f.email_field :email, autocomplete: "email"
+      .field.devise__body__inputForm
+        = f.label :password, "パスワード"
         - if @minimum_password_length
           %em
-            (#{@minimum_password_length} characters minimum)
+            (#{@minimum_password_length} 文字以上)
         %br/
         = f.password_field :password, autocomplete: "new-password"
-      .field
-        = f.label :password_confirmation
+      .field.devise__body__inputForm
+        = f.label :password_confirmation, "パスワード確認"
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password"
-      .field
-        = recaptcha_tags callback: 'recaptchaCallbackFunction'
-      .actions
-        = f.submit "Sign up", id:"deviseSubmit",disabled: "disabled"
+      .actions.devise__body__button
+        = f.submit "登録する"
     = render "devise/shared/links"
