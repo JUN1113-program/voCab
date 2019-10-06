@@ -1,6 +1,6 @@
-.main.main--newWord
-.sideBar
-  サイドバーだよ.sideBar.sideBar--createWord
+.main.main--createWord
+  = render partial: "createWord", locals: {wordbook: @wordbook, word: @word}
+.sideBar.sideBar--createWord
   .sideBar__top
     %p
       = "「#{@wordbook.title}」の単語カード"
