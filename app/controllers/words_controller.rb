@@ -25,6 +25,7 @@ class WordsController < ApplicationController
   end
 
   def edit
+    render "words/new"
   end
 
   def update
