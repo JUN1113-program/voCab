@@ -1,0 +1,4 @@
+.createWord{
+  @include input_form(500px);
+  margin-top: $create-wordcard-height;
+}

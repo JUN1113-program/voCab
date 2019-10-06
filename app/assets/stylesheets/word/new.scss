@@ -1,0 +1,24 @@
+.main--createWord{
+  width: 40%;
+}
+
+.sideBar{
+  &--createWord{
+    width: 60%;
+    background-color: $white;
+    border-left: 1px solid $black;
+  }
+  &__top{
+    height:  $create-wordcard-height;
+    border-bottom: 1px solid $black;
+    @include font_data($black, 20px, bold);
+    text-align: center;
+    &__words{
+      display: flex;
+      justify-content: space-around;
+      &__word{
+        font-size: 25px;
+      }
+    }
+  }
+}

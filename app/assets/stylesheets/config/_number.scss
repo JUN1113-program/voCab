@@ -1,2 +1,8 @@
+// ヘッダーの高さ
 $header-height: 80px;
-$main-height: calc(100vh - $header-height);
+
+// メインエリアの高さ
+$main-height: calc(100vh - #{$header-height});
+
+// 単語作成エリアTOPの高さ
+$create-wordcard-height: 65px;
