@@ -21,12 +21,12 @@ class WordsController < ApplicationController
 
   def update
     @word.update(word_params)
-    redirect_to wordbook_path(params[:wordbook_id])
+    redirect_to new_wordbook_word_path(params[:wordbook_id])
   end
 
   def destroy
     @word.destroy
-    redirect_to wordbook_path(params[:wordbook_id])
+    redirect_to new_wordbook_word_path(params[:wordbook_id])
   end
 
   private
