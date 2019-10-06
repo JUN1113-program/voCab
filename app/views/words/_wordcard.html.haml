@@ -1,11 +1,12 @@
-.wordcard
-  - if user_signed_in? && current_user.id == word.wordbook.user.id
-    .wordcard__edit
-      = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
-    .wordcard__destroy
-      = link_to "Delete",wordbook_word_path(word.wordbook.id, word.id),method: :delete
-  .wordcard__front
-    = word.front
-.wordcard
-  .wordcard__reverse
-    = word.reverse
+- if word.id
+  .wordcard
+    - if current_user&.id == word.wordbook.user.id
+      .wordcard__edit
+        = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
+      .wordcard__destroy
+        = link_to "Delete",wordbook_word_path(word.wordbook.id, word.id),method: :delete
+    .wordcard__front
+      = word.front
+  .wordcard
+    .wordcard__reverse
+      = word.reverse
