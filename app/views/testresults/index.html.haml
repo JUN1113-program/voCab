@@ -14,11 +14,13 @@
       = button_tag "Radar"
   .charts.charts--empty
 .sideBar.sideBar--indexTestresult
+  .sideBar__top
+    %p 受験したテスト一覧
   .testresults
     - @testresults.each.with_index do |testresult,i|
       .testresult
+        = link_to "#{testresult.test.wordbook.title}", user_testresult_path(current_user.id,testresult.id), class:"testresult__title"
         .testresult__score
-          = "テスト結果[#{i+1}] #{testresult.score} ％"
+          = "点数: #{testresult.score}"
         .testresult__time
           = l(testresult.created_at, format: :long)
-        = link_to "取り組んだテスト: #{testresult.test.wordbook.title}", user_testresult_path(current_user.id,testresult.id), class:"testresult__title"
