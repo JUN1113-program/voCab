@@ -123,7 +123,7 @@ $(function(){
   // ボタンが押された際にグラフの種類を変更する
   $(".addChart__button").on("click", function(){
     var color = createColors();
-    var type = $(this).children().text();
+    var type = $(this).children().text().toLowerCase();
     var axes = type == "radar" ? 0 : 1 ;
     var user_id = $(".main--indexTestresult")[0].dataset.id;
     var url = `/users/${user_id}/api/testresults`;
