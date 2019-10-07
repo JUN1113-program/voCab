@@ -35,14 +35,16 @@
 }
 
 .sideBar{
-  &__top{
-    height: 30px;
-  }
   &--indexTestresult{
     width: 20%;
     height: $main-height;
     border-left: 1px solid $black;
     background-color: $white;
+    &__top{
+      @include text_center(30px, center);
+      @include font_data($black, 18px, bold);
+      border-bottom: 1px solid $black;
+    }
     .testresults{
       overflow: scroll;
       height: calc(#{$main-height} - 30px);
