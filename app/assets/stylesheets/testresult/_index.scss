@@ -12,6 +12,8 @@
       text-align: center;
       & button{
         @include reset_form;
+        color: $black;
+        font-weight: bold;
         font-size:  20px;
         line-height: 30px;
       }
@@ -23,9 +25,10 @@
   & .charts{
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     width: 100%;
     & .wrapar{
-      width: 48%;
+      width: 540px;
       height: 400px;
     }
   }
