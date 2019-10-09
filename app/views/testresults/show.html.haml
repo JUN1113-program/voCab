@@ -18,4 +18,13 @@
           .testresult-detail__corrects__correct
             = "#{i+1}問目 #{question.testwords.find_by(correct: 1).word}"
 .sideBar
-  = link_to "このテストをもう一度受験する", wordbook_test_path(@testresult.test.wordbook.id, @testresult.test.id) if @testresult.test
+  = link_to "このテストをもう一度受験する", wordbook_test_path(@testresult.test.wordbook.id, @testresult.test.id) if @testresult.test.sideBar.sideBar--testresult-detail
+  .sideBar--testresult-detail__top
+    %p 過去のテスト結果
+  .testresults
+    - @testresults.each.with_index do |testresult,i|
+      .testresult.testresult--detail
+        .testresult__score
+          = link_to "点数: #{testresult.score}", user_testresult_path(current_user.id,testresult.id)
+        .testresult__time
+          = l(testresult.created_at, format: :long)
