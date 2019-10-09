@@ -1,41 +1,74 @@
-.testresult-detail{
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
+.main--testresult-detail{
+  width: 80%;
+  & .charts{
+    & .wrapar{
+      width: 540px;
+      height: 350px;
+      margin: 0  auto;
 
-  &__score{
-    @include card_style(30px,500px, rgb(238, 182, 182),60%);
-    line-height: 30px;
-    text-align: center;
-    margin: 10px auto 0px;
+      border: 1px solid $black;
+      padding: 10px 20px;
+      & canvas{
+      }
+    }
   }
-  &__title{
-    @include card_style(30px,500px,rgb(238, 182, 182),60%);
-    line-height: 30px;
-    text-align: center;
-    margin: 10px auto 0px;
-  }
-  &__words{
+  & .testresult-detail{
+    min-width: 600px;
+    margin: 0 auto;
+    color: $black;
     &__top{
-      @include card_style(30px,200px,rgb(238, 182, 182),60%);
-      text-align: center;
+      @include text_center(50px,center);
+      @include font_data($black, 20px, bold);
+      margin: 10px auto 0px;
     }
-    &__word{
-      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+    &__words{
+      width: 47%;
+      border: solid 1px $black;
+      &__top{
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid $black;
+      }
+      &__word{
+        padding-left: 6px;
+        line-height: 30px;
+      }
     }
-  }
-  &__corrects{
-    &__top{
-      @include card_style(30px,200px,rgb(238, 182, 182),60%);
-      text-align: center;
-    }
-    &__correct{
-      @include card_style(30px,200px,rgb(238, 182, 182),60%);
+    &__link{
+      width: 200px;
+      margin: 20px auto;
+      & a{
+        @include reset_a-tag($black);
+      }
+      &__box{
+        width: 180px;
+        padding: 10px;
+        border: solid 1px $black;
+        font-size: 18px;
+        &:hover{
+          box-shadow: 0 0 1px $black;
+        }
+      }
     }
   }
 }
+
+.sideBar--testresult-detail{
+  width: 20%;
+  height: $main-height;
+  border-left: 1px solid $black;
+  background-color: $white;
+  &__top{
+    @include text_center(30px, center);
+    @include font_data($black, 18px, bold);
+    border-bottom: 1px solid $black;
+  }
+  &--detail{
+    height: 40px;
+  }
+}
 .flexbox--start{
-  width: 500px;
+  width: 60%;
   margin: 0 auto;
   justify-content: space-around;
 }

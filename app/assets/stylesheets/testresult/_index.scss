@@ -45,41 +45,48 @@
       @include font_data($black, 18px, bold);
       border-bottom: 1px solid $black;
     }
-    .testresults{
-      overflow: scroll;
-      height: calc(#{$main-height} - 30px);
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      padding-bottom: 10px;
-      & a{
-        @include reset_a-tag($black);
-        &:hover{
-          border-bottom: 2px dotted $black;
-        }
+  }
+  .testresults{
+    overflow: scroll;
+    height: calc(#{$main-height} - 30px);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    padding-bottom: 10px;
+    & a{
+      @include reset_a-tag($black);
+      &:hover{
+        border-bottom: 2px dotted $black;
       }
-      & .testresult{
-        width: 200px;
-        height: 50px;
-        border-bottom: 1px solid $black;
-        margin: 3px 0;
-        position: relative;
-        color: $black;
-        &__title{
-          font-weight: bold;
-        }
-        &__score{
-          position: absolute;
-          bottom: 1px;
-          left: 0px;
-        }
-        &__time{
-          font-size: 12px;
-          color: gray;
-          position: absolute;
-          bottom: 1px;
-          right: 0px;
-        }
+    }
+    &--detail{
+      height: 10px;
+    }
+    & .testresult{
+      width: 200px;
+      height: 50px;
+      border-bottom: 1px solid $black;
+      margin: 3px 0;
+      position: relative;
+      color: $black;
+      &--detail{
+        height: 25px;
+      }
+      &__title{
+        font-weight: bold;
+      }
+      &__score{
+        position: absolute;
+        bottom: 1px;
+        left: 0px;
+      }
+      &__time{
+        font-size: 12px;
+        color: gray;
+        position: absolute;
+        bottom: 1px;
+        right: 0px;
       }
     }
   }

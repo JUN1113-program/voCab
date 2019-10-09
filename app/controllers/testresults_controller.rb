@@ -17,6 +17,7 @@ class TestresultsController < ApplicationController
 
   def show
     @testresult = Testresult.find(params[:id])
+    @testresults = Testresult.where(user_id: current_user.id, test_id: @testresult.test.id).order("id DESC")
   end
 
   private
