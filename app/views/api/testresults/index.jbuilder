@@ -1,3 +1,4 @@
+# コントローラーで定義した@testresultsを配列に格納する
 count = @testresults.group(:test_id).count
 ary = []
 i = 0
@@ -6,6 +7,8 @@ count.each do |key, value|
   i += 1
 end
 
+
+# 上記で配列化したデータをchart.jsで用いるjson形式に変換する
 json.array! ary do |testresults|
   data = []
   labels = []
