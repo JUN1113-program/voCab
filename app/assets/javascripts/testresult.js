@@ -119,6 +119,12 @@ $(function(){
     outputchart();
     putscorechart();
   }
+  //テスト受験後の結果発表ページにアクセスが有った場合
+  if ($(".main--testresult-detail").length){
+    var test_id = $(".main")[0].dataset.test;
+    data = {test_id: test_id}
+    outputchart(data);
+  }
 
   // ボタンが押された際にグラフの種類を変更する
   $(".addChart__button").on("click", function(){
