@@ -1,7 +1,10 @@
-.testresult-detail{
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
+.main--testresult-detail{
+  width: 80%;
+  & .charts{
+    & .wrapar{
+      width: 540px;
+      height: 350px;
+      margin: 0  auto;
 
   &__score{
     @include card_style(30px,500px, rgb(238, 182, 182),60%);
