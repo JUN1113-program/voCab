@@ -1,24 +1,28 @@
-.main
+.main.main--testresult-detail{"data-id": current_user.id, "data-test": @testresult.test.id}
   .testresult-detail
-    .testresult-detail__score
-      = "アナタの得点は#{@testresult.score}点です！！！！！"
-    .testresult-detail__title
-      = "単語帳 #{@testresult.test.wordbook.title}のテストを解いたよ！"
+    .testresult-detail__top
+      = "「#{@testresult.test.wordbook.title}」のテスト結果   #{@testresult.score}点"
     .flexbox.flexbox--start
       .testresult-detail__words
         .testresult-detail__words__top
-          あなたの解答一覧
+          あなたの解答
         - @testresult.testwords.each.with_index do |testword, i|
           .testresult-detail__words__word
-            = "#{i+1}問目 #{testword.word}"
-      .testresult-detail__corrects
-        .testresult-detail__corrects__top
-          正答一覧
+            = "[#{i+1}] #{testword.word}"
+      .testresult-detail__words
+        .testresult-detail__words__top
+          正答
         - @testresult.test.questions.each.with_index do |question, i|
-          .testresult-detail__corrects__correct
-            = "#{i+1}問目 #{question.testwords.find_by(correct: 1).word}"
-.sideBar
-  = link_to "このテストをもう一度受験する", wordbook_test_path(@testresult.test.wordbook.id, @testresult.test.id) if @testresult.test.sideBar.sideBar--testresult-detail
+          .testresult-detail__words__word
+            = "[#{i+1}] #{question.testwords.find_by(correct: 1).word}"
+    .testresult-detail__link
+      = link_to  wordbook_test_path(@testresult.test.wordbook.id, @testresult.test.id) do
+        .testresult-detail__link__box
+          = icon("far", "check-circle")
+          もう一度受験する
+  .charts
+    .charts--empty
+.sideBar.sideBar--testresult-detail
   .sideBar--testresult-detail__top
     %p 過去のテスト結果
   .testresults
