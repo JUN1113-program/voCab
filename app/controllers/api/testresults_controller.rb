@@ -8,6 +8,6 @@ class Api::TestresultsController < ApplicationController
 
   private
   def set_testresults
-    @testresults = current_user.testresults
+    @testresults = params[:test_id] ? current_user.testresults.where(test_id: params[:test_id]) : current_user.testresults
   end
 end
