@@ -52,8 +52,23 @@
     }
   }
 }
+
+.sideBar--testresult-detail{
+  width: 20%;
+  height: $main-height;
+  border-left: 1px solid $black;
+  background-color: $white;
+  &__top{
+    @include text_center(30px, center);
+    @include font_data($black, 18px, bold);
+    border-bottom: 1px solid $black;
+  }
+  &--detail{
+    height: 40px;
+  }
+}
 .flexbox--start{
-  width: 500px;
+  width: 60%;
   margin: 0 auto;
   justify-content: space-around;
 }
