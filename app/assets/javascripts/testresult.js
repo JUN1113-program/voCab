@@ -19,7 +19,6 @@ $(function(){
       color = "rgba(" + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", 0.7)";
       colors.push(color)
     }
-    console.log(colors);
     return colors;
   }
 
@@ -81,11 +80,12 @@ $(function(){
   }
 
   //初期のテスト結果グラフを出力する
-  function outputchart(){
-    var user_id = $(".main--indexTestresult")[0].dataset.id;
+  function outputchart(data = null){
+    var user_id = $(".main")[0].dataset.id;
     var url = `/users/${user_id}/api/testresults`;
     $.ajax({
-      url: url
+      url: url,
+      data: data
     })
     .done(function(testresults){
       testresults.forEach(function(testresult){
@@ -100,7 +100,7 @@ $(function(){
 
   // 初期のハイスコアグラフとアベレージスコアグラフを出力する
   function putscorechart(){
-    var user_id = $(".main--indexTestresult")[0].dataset.id;
+    var user_id = $(".main")[0].dataset.id;
     var url = `/users/${user_id}/api/testresults/new`;
     $.ajax({
       url: url
@@ -115,7 +115,8 @@ $(function(){
     });
   }
 
-  if (window.location.pathname.match("/users/.+/testresults")){
+  //テスト履歴一覧表示ページにアクセスがあった場合
+  if ($(".main--indexTestresult").length){
     outputchart();
     putscorechart();
   }
