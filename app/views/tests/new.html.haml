@@ -1,10 +1,16 @@
-.main.mainNewTest
+.main.main--NewTest
+  %h2 4択テスト作成画面
   = form_for [@wordbook,@test] do |f|
-    - @wordbook.words.each.with_index do |word,i|
-      = f.label word.front
-      %br
-      = f.text_field :word, placeholder:"正解を入力", name: "words[t#{i}][]"
-      - 3.times do
-        = f.text_field :word, placeholder:"誤答を入力", name: "words[t#{i}][]"
-      %br
-    = f.submit "テストを作成"
+    .newTests
+      %p.newTests__example
+        裏の言葉は入力済み(編集可能)です、誤答を３つ入力してください(20文字以内)
+      - @wordbook.words.each.with_index do |word,i|
+        .newTests__test
+          .newTests__test__top
+            = word.front
+          = f.text_field :word, class:"newTests__test__input newTests__test__input--correct", placeholder:"正解を入力", name: "words[t#{i}][]", autocomplete: "off", maxlength: "20", required: "on", value: word.reverse
+          %br
+          - 3.times do
+            = f.text_field :word, class:"newTests__test__input", placeholder:"誤答を入力", name: "words[t#{i}][]", autocomplete: "off", maxlength: "20", required: "on", autofocus: "on"
+      .newTests__submit
+        = f.submit "テストを作成"
