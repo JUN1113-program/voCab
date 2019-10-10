@@ -1,23 +1,31 @@
 .main--showTest{
+  width: 100%;
   & .testcards{
     width: 900px;
-    margin: 0 auto;
+    padding-bottom: 90px;
+    margin: 20px auto;
+    border: 1px solid $black;
     & .testcard{
-      @include card_style(90px,850px);
+      width: 90%;
+      margin: 20px auto;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $black;
       &__top{
-        @include font_data(black,22px);
+        @include font_data($black,20px,bold);
       }
       &__word{
-        @include font_data(black,20px,bold);
+        @include font_data($black,20px);
         width: 23%;
       }
-      &__submit{
-        @include reset_form;
-        width:100px;
-        height: 100px;
-        border: solid 2px gray;
-        float: right;
-      }
+    }
+    &__submit{
+      @include reset_form;
+      color: $black;
+      width: 200px;
+      height: 50px;
+      border: solid 2px $black;
+      margin: 20px;
+      float: right;
     }
   }
 }
