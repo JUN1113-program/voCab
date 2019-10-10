@@ -1,0 +1,57 @@
+.main--NewTest{
+  width: 100%;
+  color: $black;
+  & h2{
+    @include font_data($black, 22px, bold);
+    padding: 15px 0 0;
+    text-align: center;
+  }
+  & .newTests{
+    width: 1100px;
+    margin: 20px auto;
+    padding: 20px 0;
+    border: 1px solid $black;
+    &__example{
+      @include font_data($black, 16px, bold);
+      text-align: center;
+    }
+    &__test{
+      width: 1060px;
+      padding: 5px;
+      margin: 0 auto;
+      &__top{
+        font-weight: bold;
+      }
+      &__input{
+        @include reset_form;
+        color: $black;
+        width: 340px;
+        margin: 3px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        border: 1px solid $black;
+        &:focus{
+          box-shadow: 0px 0px 2px $black;
+        }
+        &--correct{
+          border: none;
+          border-bottom: 3px double $black;
+          &:focus{
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    &__submit{
+      display: flex;
+      justify-content:  flex-end;
+      & input{
+        @include reset_form;
+        border: 1px solid $black;
+        padding: 10px;
+        margin:10px 30px 0 0;
+        font-weight: bold;
+      }
+    }
+  }
+}
