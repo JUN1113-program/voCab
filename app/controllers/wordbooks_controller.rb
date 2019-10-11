@@ -27,7 +27,7 @@ class WordbooksController < ApplicationController
   end
   def destroy
     @wordbook.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
   end
 
   def show
