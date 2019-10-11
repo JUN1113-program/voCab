@@ -1,11 +1,5 @@
 .main.main--createWord
   = render partial: "createWord", locals: {wordbook: @wordbook, word: @word}
 .sideBar.sideBar--createWord
-  .sideBar__top
-    %p
-      = "「#{@wordbook.title}」の単語カード"
-    .sideBar__top__words
-      %p.sideBar__top__words__word 表
-      %p.sideBar__top__words__word 裏
-  .wordcards.wordcards--create
+  = render partial: "wordTop", locals: {wordbook: @wordbook}
     = render partial: "wordcard", collection: @words, as: :word

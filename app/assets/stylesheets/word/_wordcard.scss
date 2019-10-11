@@ -3,10 +3,14 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-content: space-around;
-  &--create{
+  &--index{
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 850px;
     align-content: flex-start;
     height: calc(#{$main-height} - #{$create-wordcard-height});
     overflow: scroll;
+    @include hiddenScrollBar;
   }
   & .wordcard{
     @include card_style;
