@@ -9,3 +9,8 @@
           = @wordbook.words.first.front
     = button_tag class:"button__arrow button__arrow--right" do
       = icon("fas fa-5x","chevron-right")
+    %footer.main--showWordBook__footer
+      = link_to wordbook_words_path(@wordbook.id) do
+        - 2.times do
+          = icon("fas", "arrow-right")
+        単語カード一覧表示
