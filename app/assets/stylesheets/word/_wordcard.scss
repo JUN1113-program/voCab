@@ -18,37 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &__edit{
-      @include font_data(gray,20px,bold);
+    &__button{
+      margin-left: 5px;
+      @include font_data($black,18px);
       & a{
-        @include reset_a-tag(gray);
+        @include reset_a-tag($black);
       }
-      position: absolute;
-      left: 0;
-      bottom: 0;
     }
-    &__destroy{
-      @include font_data(gray,20px,bold);
-      & a{
-        @include reset_a-tag(gray);
-      }
-      position: absolute;
-      left: 50px;
-      bottom: 0;
-    }
-    &__front{
       @include font_data(black,30px,bold);
       overflow-wrap: break-word;
-    }
-    &__reverse{
-      @include font_data(black,30px,bold);
-      overflow-wrap: break-word;
-    }
-    &__tag{
-      @include font_data(gray,10px,400);
-      position: absolute;
-      right: 5px;
-      bottom: 5px;
     }
   }
 }
