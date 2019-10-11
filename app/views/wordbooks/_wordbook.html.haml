@@ -2,8 +2,9 @@
   - fav_id = fav.wordbook.id
 - id = wordbook.id
 .wordbook{"data-id": id}
-  .wordbook__title
-    = link_to "#{wordbook.title.truncate(15)}", wordbook_path(wordbook.id)
+  = link_to wordbook_path(wordbook.id),class:"wordbook__link" do
+    .wordbook__title
+      = wordbook.title.truncate(15)
   .wordbook__viewed
     = "閲覧数: #{wordbook.viewed}"
   .wordbook__user
