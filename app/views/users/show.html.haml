@@ -1,5 +1,5 @@
 .main.main--showUser
-  .showUser.showUser--wide
+  .showUser.showUser
     .showUser__bar
       .showUser__bar__title
         - if user_signed_in? && current_user.id == @user.id
@@ -14,7 +14,8 @@
           = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
         - else
           = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
-  .showUser
+.sideBar.sideBar--showUser
+  .showUser.showUser--scroll
     .showUser__bar
       .showUser__bar__title
         = icon("fas fa", "bookmark")
