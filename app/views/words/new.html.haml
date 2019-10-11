@@ -2,4 +2,5 @@
   = render partial: "createWord", locals: {wordbook: @wordbook, word: @word}
 .sideBar.sideBar--createWord
   = render partial: "wordTop", locals: {wordbook: @wordbook}
+  .wordcards.wordcards--index
     = render partial: "wordcard", collection: @words, as: :word

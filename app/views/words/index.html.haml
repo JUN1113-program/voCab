@@ -1,5 +1,6 @@
 .main.main--indexWord
   = render partial: "wordTop", locals: {wordbook: @wordbook}
+  .wordcards.wordcards--index
     = render partial: "wordcard",collection: @wordbook.words, as: :word
 
 .sideBar.sideBar--indexWord
