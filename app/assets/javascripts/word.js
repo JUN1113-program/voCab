@@ -22,13 +22,13 @@ $(function(){
   function appendHTML(word, onoff){
     var put = onoff == "front" ? word.front : word.reverse;
     var HTML = `
-    <div class = "wordcard wordcard--${onoff}">
-      <div class = "wordcard__word">
+    <div class = "main--showWordBook__wordcard main--showWordBook__wordcard--${onoff}">
+      <div class = "main--showWordBook__wordcard__word">
         ${put}
       </div>
     </div>
     `
-    $(".wordcards").html(HTML);
+    $(".main--showWordBook__wrapper").html(HTML);
   }
 
   // 左矢印が押された際に前の単語を表示する
@@ -51,10 +51,10 @@ $(function(){
   showWordBook ? wordcard() : null ;
 
   // 裏表を入れ替える
-  $(document).on("click",".wordcard--front",function(){
+  $(document).on("click",".main--showWordBook__wordcard--front",function(){
     appendHTML(cards[count],"reverse");
   })
-  $(document).on("click",".wordcard--reverse",function(){
+  $(document).on("click",".main--showWordBook__wordcard--reverse",function(){
     appendHTML(cards[count],"front");
   })
 });
