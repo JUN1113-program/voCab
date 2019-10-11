@@ -26,10 +26,11 @@
           = icon("fas fa-3x", "bookmark")
         - else
           = icon('far fa-3x', 'bookmark')
-  - if user_signed_in? && current_user.id == wordbook.user.id
-    .wordbook__edit
-      = link_to "Edit", edit_wordbook_path(wordbook.id)
-    .wordbook__add
-      = link_to "Add",new_wordbook_word_path(wordbook.id)
-    .wordbook__destroy
-      = link_to "Delete", wordbook_path(wordbook.id), method: :delete
+  - if user_signed_in? && current_user.id == wordbook.user.id && request.fullpath.match("/users")
+    .flexbox.flexbox--buttons
+      .wordbook__button
+        = link_to "編集", edit_wordbook_path(wordbook.id)
+      .wordbook__button
+        = link_to "追加", new_wordbook_word_path(wordbook.id)
+      .wordbook__button
+        = link_to "削除", wordbook_path(wordbook.id), method: :delete
