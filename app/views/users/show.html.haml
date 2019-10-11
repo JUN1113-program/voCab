@@ -19,7 +19,7 @@
     .showUser__bar
       .showUser__bar__title
         = icon("fas fa", "bookmark")
-        お気に入り
+        = current_user.id == params[:id].to_i ? "あなたのお気に入り" : "#{@user.nickname}のお気に入り"
     .wordbooks
       - @favorites&.each do |faved|
         - if fav = faved.wordbook.favorites.find_by(user_id: current_user.id)
