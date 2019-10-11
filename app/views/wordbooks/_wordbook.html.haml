@@ -2,33 +2,37 @@
   - fav_id = fav.wordbook.id
 - id = wordbook.id
 .wordbook{"data-id": id}
-  .wordbook__title
-    = link_to "#{wordbook.title.truncate(15)}", wordbook_path(wordbook.id)
+  = link_to wordbook_path(wordbook.id),class:"wordbook__link" do
+    .wordbook__title
+      = wordbook.title.truncate(15)
   .wordbook__viewed
     = "閲覧数: #{wordbook.viewed}"
   .wordbook__user
     = link_to "作者: #{wordbook.user.nickname}", user_path(wordbook.user.id)
   .wordbook__created-at
     = l(wordbook.created_at, format: :long)
-  .wordbook__tags
-    - wordbook.tags.each do |tag|
-      = "##{tag.name}"
   .wordbook__reference
     = "参照元: "
     = wordbook.reference.present? ? wordbook.reference : "なし"
   .wordbook__favorite_count
     = "お気に入り: #{favorite_count}"
-  - if user_signed_in?
-    .wordbook__fav{"data-fav": fav_id}
-      = button_tag do
-        - if fav_id == id
-          = icon("fas fa-3x", "bookmark")
-        - else
-          = icon('far fa-3x', 'bookmark')
-  - if user_signed_in? && current_user.id == wordbook.user.id
-    .wordbook__edit
-      = link_to "Edit", edit_wordbook_path(wordbook.id)
-    .wordbook__add
-      = link_to "Add",new_wordbook_word_path(wordbook.id)
-    .wordbook__destroy
-      = link_to "Delete", wordbook_path(wordbook.id), method: :delete
+  .flexbox.flexbox--wordcard
+    - if user_signed_in? && request.fullpath == "/"
+      .wordbook__fav{"data-fav": fav_id}
+        = button_tag do
+          - if fav_id == id
+            = icon("fas fa-3x", "bookmark")
+          - else
+            = icon('far fa-3x', 'bookmark')
+    - if user_signed_in? && wordbook.test
+      .wordbook__test
+        = link_to wordbook_test_path(wordbook.id, wordbook.test.id) do
+          = icon("fas fa-2x", "highlighter")
+  - if user_signed_in? && current_user.id == wordbook.user.id && request.fullpath.match("/users")
+    .flexbox.flexbox--buttons
+      .wordbook__button
+        = link_to "編集", edit_wordbook_path(wordbook.id)
+      .wordbook__button
+        = link_to "追加", new_wordbook_word_path(wordbook.id)
+      .wordbook__button
+        = link_to "削除", wordbook_path(wordbook.id), method: :delete
