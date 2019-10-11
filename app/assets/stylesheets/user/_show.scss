@@ -1,19 +1,23 @@
 .main--showUser{
-  width: 100%;
+  width: 65%;
   display: flex;
-  .showUser{
-    width: 35%;
-    &--wide{
-      width: 65%;
-      border-right: 2px dashed $black;
-    }
-    &__bar{
-      @include card_style(50px,95%);
-      margin: 10px auto;
-      &__title{
-        @include text_center(50px,center);
-        @include font_data($black,20px,bold);
-      }
+}
+.sideBar--showUser{
+  width: 35%;
+  background-color: $white;
+  border-left: 3px dotted $black;
+}
+.showUser{
+  &--scroll{
+    height: $main-height;
+    overflow: scroll;
+  }
+  &__bar{
+    @include card_style(50px,95%);
+    margin: 10px auto;
+    &__title{
+      @include text_center(50px,center);
+      @include font_data($black,20px,bold);
     }
   }
 }
