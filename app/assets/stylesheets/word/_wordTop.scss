@@ -1,0 +1,13 @@
+.wordTop{
+  height:  $create-wordcard-height;
+  border-bottom: 1px solid $black;
+  @include font_data($black, 20px, bold);
+  text-align: center;
+  &__words{
+    display: flex;
+    justify-content: space-around;
+    &__word{
+      font-size: 25px;
+    }
+  }
+}

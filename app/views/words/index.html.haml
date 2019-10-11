@@ -1,11 +1,25 @@
 .main.main--indexWord
-  .wordcards
+  = render partial: "wordTop", locals: {wordbook: @wordbook}
+  .wordcards.wordcards--index
     = render partial: "wordcard",collection: @wordbook.words, as: :word
 
 .sideBar.sideBar--indexWord
-  - if @wordbook.test && user_signed_in?
-    = link_to "このテストを受験する", wordbook_test_path(@wordbook.id, @wordbook.test.id)
-    %br
-    - if @wordbook.user.id == current_user&.id
-      = link_to "このテストを削除する", wordbook_test_path(@wordbook.id, @wordbook.test.id), method: :delete
-  = link_to "このテストを作成する", new_wordbook_test_path(@wordbook.id) unless @wordbook.test
+  .flexbox
+    - if @wordbook.test && user_signed_in?
+      .sideBar--indexWord__link
+        = link_to wordbook_test_path(@wordbook.id, @wordbook.test.id) do
+          = icon("fas fa-3x", "highlighter")
+          %br
+          %p テストを受験
+      - if @wordbook.user.id == current_user&.id
+        .sideBar--indexWord__link
+          = link_to wordbook_test_path(@wordbook.id, @wordbook.test.id), method: :delete do
+            = icon("fas fa-3x", "trash")
+            %br
+            %p テストを削除
+    - unless @wordbook.test&.id
+      .sideBar--indexWord__link
+        = link_to new_wordbook_test_path(@wordbook.id) do
+          = icon("fas fa-3x", "plus-circle")
+          %br
+          %p テストを作成

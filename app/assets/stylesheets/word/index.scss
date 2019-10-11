@@ -1,0 +1,23 @@
+.sideBar--indexWord{
+  background-color: $white;
+  border-left: 1px solid $black;
+  &__link{
+    margin: 20px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    & a{
+      @include reset_a-tag($black);
+      & p{
+        position: absolute;
+        bottom: 15px;
+        left: 8px;
+        font-size: 13px;
+      }
+      & i{
+        position: absolute;
+        left: 20px;
+      }
+    }
+  }
+}
