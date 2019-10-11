@@ -1,11 +1,12 @@
 - if word.id
   .wordcard
     - if current_user&.id == word.wordbook.user.id
-      .wordcard__edit
-        = link_to "Edit",edit_wordbook_word_path(word.wordbook.id, word.id)
-      .wordcard__destroy
-        = link_to "Delete",wordbook_word_path(word.wordbook.id, word.id),method: :delete
     .wordcard__front
+      .flexbox.flexbox--buttons
+        .wordcard__button
+          = link_to "編集",edit_wordbook_word_path(word.wordbook.id, word.id)
+        .wordcard__button
+          = link_to "削除",wordbook_word_path(word.wordbook.id, word.id),method: :delete
       = word.front
   .wordcard
     .wordcard__reverse
