@@ -25,6 +25,10 @@
         @include reset_a-tag($black);
       }
     }
+    &__word{
+      width: 95%;
+      margin: 0 auto;
+      text-align: center;
       @include font_data(black,30px,bold);
       overflow-wrap: break-word;
     }
