@@ -31,3 +31,11 @@
     display: inline-block;
   }
 }
+
+//スクロールバーを非表示にする
+@mixin hiddenScrollBar{
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+}
