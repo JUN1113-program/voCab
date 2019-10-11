@@ -3,9 +3,9 @@
   .main.main--showWordBook{"data-id": id}
     = button_tag class:"button__arrow button__arrow--left" do
       = icon('fas fa-5x', 'chevron-left')
-    .wordcards
-      .wordcard.wordcard--front
-        .wordcard__word
+    .main--showWordBook__wrapper
+      .main--showWordBook__wordcard.main--showWordBook__wordcard--front
+        .main--showWordBook__wordcard__word
           = @wordbook.words.first.front
     = button_tag class:"button__arrow button__arrow--right" do
       = icon("fas fa-5x","chevron-right")
