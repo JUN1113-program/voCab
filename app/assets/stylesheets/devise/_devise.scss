@@ -34,6 +34,10 @@
       }
       @include devise_form();
     }
+    &__recaptcha{
+      width: 300px;
+      margin: 0 auto;
+    }
     &__button{
       & input{
         @include reset_form();
