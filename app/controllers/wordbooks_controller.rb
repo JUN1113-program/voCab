@@ -25,7 +25,7 @@ class WordbooksController < ApplicationController
 
   def update
     @wordbook.update(wordbook_params)
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
   end
 
   def destroy
