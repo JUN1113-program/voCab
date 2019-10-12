@@ -17,7 +17,7 @@
             = icon("fas fa-3x", "trash")
             %br
             %p テストを削除
-    - unless @wordbook.test&.id
+    - if !@wordbook&.test && @wordbook.user.id == current_user&.id
       .sideBar--indexWord__link
         = link_to new_wordbook_test_path(@wordbook.id) do
           = icon("fas fa-3x", "plus-circle")
