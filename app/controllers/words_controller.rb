@@ -13,7 +13,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.create(word_params)
+    Word.create(word_params)
     redirect_to new_wordbook_word_path(params[:wordbook_id])
   end
 
