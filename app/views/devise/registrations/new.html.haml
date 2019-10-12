@@ -6,22 +6,19 @@
       .field.devise__body__inputForm
         = f.label :nickname, "ニックネーム"
         %br/
-        = f.text_field :nickname, autofocus: true
+        = f.text_field :nickname, autofocus: true, placeholder: "8 文字以内",  maxlength: "8", required: "on"
       .field.devise__body__inputForm
         = f.label :email, "メールアドレス"
         %br/
-        = f.email_field :email, autocomplete: "email"
+        = f.email_field :email, autocomplete: "email", required: "on", placeholder: "@を含む必要があります"
       .field.devise__body__inputForm
         = f.label :password, "パスワード"
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} 文字以上)
         %br/
-        = f.password_field :password, autocomplete: "new-password"
+        = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 文字以上",  minlength: "#{@minimum_password_length}", required: "on"
       .field.devise__body__inputForm
         = f.label :password_confirmation, "パスワード確認"
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+        = f.password_field :password_confirmation, autocomplete: "new-password", required: "on", placeholder: "パスワードをもう一度入力"
       .actions.devise__body__button
         = f.submit "登録する"
     = render "devise/shared/links"

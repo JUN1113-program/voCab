@@ -2,6 +2,7 @@ class Word < ApplicationRecord
   belongs_to :wordbook
   has_one :question, dependent: :destroy
   has_many :images, dependent: :destroy
-  validates :front, presence: true
-  validates :reverse, presence: true
+
+  validates :front, presence: true, length: { maximum: 20 }
+  validates :reverse, presence: true, length: { maximum: 20 }
 end

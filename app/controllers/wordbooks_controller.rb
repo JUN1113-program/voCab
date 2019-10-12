@@ -24,8 +24,11 @@ class WordbooksController < ApplicationController
   end
 
   def update
-    @wordbook.update(wordbook_params)
-    redirect_to user_path(current_user.id)
+    if @wordbook.update(wordbook_params)
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to edit_wordbook_path(@wordbook.id)
+    end
   end
 
   def destroy

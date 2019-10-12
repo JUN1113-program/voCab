@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :user_tags
   has_many :tags, through: :user_tags
   has_many :testresults
+
+  validates :nickname, presence: true, length: { maximum: 8 }
 end
