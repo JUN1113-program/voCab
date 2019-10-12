@@ -47,8 +47,4 @@ class WordsController < ApplicationController
   def set_words
     @words = @wordbook.words.order("updated_at DESC")
   end
-
-  def his_wordbook?
-    redirect_to root_path unless current_user.id == @wordbook.user.id
-  end
 end
