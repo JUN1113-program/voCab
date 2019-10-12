@@ -19,6 +19,13 @@ class TestsController < ApplicationController
       end
     end
     redirect_to wordbook_words_path(@wordbook.id)
+
+    unless test_created?(test)
+      test.destroy
+      redirect_to new_wordbook_test_path(wordbook.id)
+    else
+      redirect_to wordbook_words_path(wordbook.id)
+    end
   end
 
   def destroy
@@ -53,4 +60,11 @@ class TestsController < ApplicationController
     redirect_to root_path if @wordbook.test
   end
 
+  # 正常にtestが作られているかどうか確認する
+  def test_created?(test)
+    return nil unless test.questions&.length == @wordbook.words.length
+    test.questions.each do |question|
+      return nil unless question.testwords.length == 4
+    end
+  end
 end
