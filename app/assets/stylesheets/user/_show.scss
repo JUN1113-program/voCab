@@ -8,6 +8,7 @@
   border-left: 3px dotted $black;
 }
 .showUser{
+  width: 100%;
   &--scroll{
     height: $main-height;
     overflow: scroll;
