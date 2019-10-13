@@ -1,0 +1,19 @@
+.flexbox
+  %table.users(border = "1")
+    %tbody
+      %tr
+        %th
+          ID
+        %th
+          ニックネーム
+        %th
+          記事
+      - @users.each do |user|
+        %tr
+          %td
+            = user.id
+          %td
+            = user.nickname
+          %td
+            - user.wordbooks.each do |wordbook|
+              = link_to wordbook.title, admin_path(wordbook.id), method: :delete
