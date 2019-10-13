@@ -17,7 +17,7 @@
   .wordbook__favorite_count
     = "お気に入り: #{favorite_count}"
   .flexbox.flexbox--wordcard
-    - if user_signed_in? && request.fullpath == "/"
+    - if user_signed_in? && (request.fullpath == "/" || request.fullpath.match("/?page="))
       .wordbook__fav{"data-fav": fav_id}
         = button_tag do
           - if fav_id == id
