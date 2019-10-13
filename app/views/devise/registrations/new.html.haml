@@ -20,7 +20,7 @@
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password", required: "on", placeholder: "パスワードをもう一度入力"
       .field.devise__body__recaptcha
-        = recaptcha_tags
+        = recaptcha_tags callback: 'recaptchaCallbackFunction'
       .actions.devise__body__button
-        = f.submit "登録する"
+        = f.submit "登録する" ,id: "deviseSubmit", disabled: "on"
     = render "devise/shared/links"

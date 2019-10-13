@@ -2,9 +2,10 @@ class WordbooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_wordbook, only: [:edit, :update, :show, :destroy]
   before_action :his_wordbook?, only: [:edit, :update, :destroy]
+  before_action :secret_wordbook?, only: [:show]
 
   def index
-    @wordbooks = Wordbook.order("created_at DESC").page(params[:page]).per(12).includes(:user)
+    @wordbooks = Wordbook.where.not(share: 1).order("created_at DESC").page(params[:page]).per(12).includes(:user)
   end
 
   def new

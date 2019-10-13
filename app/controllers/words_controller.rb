@@ -4,6 +4,7 @@ class WordsController < ApplicationController
   before_action :set_word, only: [:edit,:update,:destroy]
   before_action :set_words, only: [:new, :edit]
   before_action :his_wordbook?, except: :index
+  before_action :secret_wordbook?, only: [:index]
 
   def index
   end

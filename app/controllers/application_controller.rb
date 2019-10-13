@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
   def his_wordbook?
     redirect_to root_path unless current_user.id == @wordbook.user.id
   end
+
+# 非公開に設定された単語帳にアクセスが有った際に弾く
+  def secret_wordbook?
+    redirect_to root_path if @wordbook.share && @wordbook.user.id != current_user&.id
+  end
 end

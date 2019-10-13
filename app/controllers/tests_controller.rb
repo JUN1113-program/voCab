@@ -3,6 +3,7 @@ class TestsController < ApplicationController
   before_action :set_wordbook
   before_action :his_wordbook?, only: :destroy
   before_action :already_exists?, only: [:new, :create]
+  before_action :secret_wordbook?, only: [:show]
 
   def new
     @test = Test.new

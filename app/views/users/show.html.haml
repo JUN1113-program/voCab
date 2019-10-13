@@ -10,10 +10,11 @@
           = "#{@user.nickname}さんの単語帳"
     .wordbooks
       - @user.wordbooks.each do |wordbook|
-        - if fav = wordbook.favorites.find_by(user_id: current_user&.id)
-          = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
-        - else
-          = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
+        - unless wordbook.share && wordbook.user.id != current_user&.id
+          - if fav = wordbook.favorites.find_by(user_id: current_user&.id)
+            = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, fav: fav, favorite_count: wordbook.favorites.length }
+          - else
+            = render partial: "wordbooks/wordbook",locals: { wordbook: wordbook, favorite_count: wordbook.favorites.length}
 .sideBar.sideBar--showUser
   .showUser.showUser--scroll
     .showUser__bar
