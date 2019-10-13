@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       resources :testresults, only: [:index,:new], defaults: { format: 'json' }
     end
   end
+  resources :admins, only:[:index, :destroy]
 end
