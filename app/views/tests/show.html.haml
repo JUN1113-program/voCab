@@ -1,4 +1,3 @@
-- rand = Rails.env.production? ? "RANDOM()" : "rand()"
 .main.main--showTest
   .testcards
     = form_for [@wordbook,@test,@testresult] do |f|
@@ -7,7 +6,7 @@
           .testcard__top
             = question.word.front
           .flexbox
-            - question.testwords.order(rand).each.with_index do |testword,j|
+            - question.testwords.order("rand()").each.with_index do |testword,j|
               .testcard__word{"data-id": i*10 + j}
                 = f.label :id, for: "testresult_id_#{testword.id}" do
                   = f.radio_button :id, testword.id, name:"testresult[testword_id][q#{testword.question.id}]",required: "on"
