@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_022821) do
+ActiveRecord::Schema.define(version: 2019_08_18_122704) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(version: 2019_08_22_022821) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "test_id"
+    t.bigint "word_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "word_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
+    t.index ["word_id"], name: "index_questions_on_word_id"
   end
 
   create_table "selections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,7 +76,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_022821) do
   end
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "times", null: false
     t.bigint "wordbook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -134,11 +134,12 @@ ActiveRecord::Schema.define(version: 2019_08_22_022821) do
   create_table "wordbooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.integer "viewed", null: false
+    t.boolean "share", null: false
     t.string "reference"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.boolean "share", null: false
+    t.index ["user_id"], name: "index_wordbooks_on_user_id"
   end
 
   create_table "words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -155,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_022821) do
   add_foreign_key "forgettingcurves", "users"
   add_foreign_key "images", "words"
   add_foreign_key "questions", "tests"
+  add_foreign_key "questions", "words"
   add_foreign_key "selections", "testresults"
   add_foreign_key "selections", "testwords"
   add_foreign_key "testresults", "tests"
@@ -167,5 +169,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_022821) do
   add_foreign_key "user_wordbooks", "wordbooks"
   add_foreign_key "wordbook_tags", "tags"
   add_foreign_key "wordbook_tags", "wordbooks"
+  add_foreign_key "wordbooks", "users"
   add_foreign_key "words", "wordbooks"
 end
