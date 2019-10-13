@@ -37,8 +37,8 @@ class WordbooksController < ApplicationController
   end
 
   def show
-    # viewed = @wordbook.viewed + 1
-    # @wordbook.update(viewed: viewed)
+    viewed = @wordbook.viewed + 1
+    @wordbook.update(viewed: viewed)
   end
 
   private
