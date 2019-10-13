@@ -1,4 +1,5 @@
 .main--indexWordBook{
+  width: 100%;
   & .pagenation{
     text-align: center;
     @include font_data($black, 20px);

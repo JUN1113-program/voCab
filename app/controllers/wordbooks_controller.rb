@@ -4,7 +4,7 @@ class WordbooksController < ApplicationController
   before_action :his_wordbook?, only: [:edit, :update, :destroy]
 
   def index
-    @wordbooks = Wordbook.order("created_at DESC").page(params[:page]).per(8).includes(:user)
+    @wordbooks = Wordbook.order("created_at DESC").page(params[:page]).per(12).includes(:user)
   end
 
   def new
