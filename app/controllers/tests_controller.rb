@@ -52,7 +52,7 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.permit(:wordbook_id).merge(times: 0)
+    params.permit(:wordbook_id)
   end
 
   def already_exists?
