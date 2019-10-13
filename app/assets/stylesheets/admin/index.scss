@@ -1,0 +1,11 @@
+.users{
+  margin: 100px;
+  & th{
+    line-height: 40px;
+    padding: 5px;
+  }
+  & td{
+    line-height: 40px;
+    padding: 5px;
+  }
+} 
