@@ -24,11 +24,11 @@ $(function(){
     var HTML = `
     <div class = "main--showWordBook__wordcard main--showWordBook__wordcard--${onoff}">
       <div class = "main--showWordBook__wordcard__word">
-        ${put}
       </div>
     </div>
     `
     $(".main--showWordBook__wrapper").html(HTML);
+    $(".main--showWordBook__wordcard__word").text(put);
   }
 
   // 左矢印が押された際に前の単語を表示する
