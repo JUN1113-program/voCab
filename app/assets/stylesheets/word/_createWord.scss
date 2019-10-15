@@ -1,4 +1,10 @@
 .createWord{
-  @include input_form(500px);
+  @include input_form(380px);
   margin-top: $create-wordcard-height;
+  &__form{
+    &__input{
+      height: 80px;
+      line-height: 40px;
+    }
+  }
 }
