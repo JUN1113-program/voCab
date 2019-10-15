@@ -3,6 +3,6 @@ class Word < ApplicationRecord
   has_one :question, dependent: :destroy
   has_many :images, dependent: :destroy
 
-  validates :front, presence: true, length: { maximum: 20 }
-  validates :reverse, presence: true, length: { maximum: 20 }
+  validates :front, presence: true, length: { maximum: 30 }
+  validates :reverse, presence: true, length: { maximum: 30 }
 end

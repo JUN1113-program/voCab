@@ -3,11 +3,11 @@
     = f.label :front, "表の言葉"
     %span.require
       必須
-    = f.text_field :front, class: "createWord__form__input", value: word.front, required: "on", autocomplete: "off", placeholder: "20文字以内",  maxlength: "20" , autofocus: "on"
+    = f.text_field :front, class: "createWord__form__input", value: word.front, required: "on", autocomplete: "off", placeholder: "30文字以内",  maxlength: "30" , autofocus: "on"
   .createWord__form
     = f.label :reverse, "裏の言葉"
     %span.require
       必須
-    = f.text_field :reverse, class: "createWord__form__input", value: word.reverse, required: "on", autocomplete: "off", placeholder: "20文字以内",  maxlength: "20"
+    = f.text_field :reverse, class: "createWord__form__input", value: word.reverse, required: "on", autocomplete: "off", placeholder: "30文字以内",  maxlength: "30"
   .createWord__submit
     = f.submit
