@@ -11,6 +11,11 @@ describe User do
       user = build(:user, password: "123456", password_confirmation: "123456")
       expect(user).to be_valid
     end
+
+    it "ニックネームが8文字入力されている" do
+      user = build(:user, nickname: "12345678")
+      expect(user).to be_valid
+    end
   end
 
   context "登録できない場合" do
@@ -18,6 +23,12 @@ describe User do
       user = build(:user, nickname: "")
       user.valid?
       expect(user.errors[:nickname]).to include("を入力してください")
+    end
+
+    it "nicknameが8文字を超える" do
+      user = build(:user, nickname: "123456789")
+      user.valid?
+      expect(user.errors[:nickname]).to include("は8文字以内で入力してください")
     end
 
     it "emailが未入力である" do
