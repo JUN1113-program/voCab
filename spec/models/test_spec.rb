@@ -8,4 +8,12 @@ describe Test do
     end
   end
 
+  context "登録できない場合" do
+    it "wordbook_idがない" do
+      test = build(:test, wordbook_id: "")
+      test.valid?
+      expect(test.errors[:wordbook]).to include("を入力してください")
+    end
+  end
+
 end
