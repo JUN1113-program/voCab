@@ -4,4 +4,5 @@ class Testword < ApplicationRecord
   has_many :testresults, through: :selections, dependent: :destroy
 
   validates :word, presence: true, length: { maximum: 30 }
+  validates :correct, presence: true, inclusion: { in: [0, 1] }
 end
