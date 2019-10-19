@@ -8,3 +8,8 @@ $breakpoints: (
   '4k'       : 'screen and (max-width: 2560px)',
 ) !default;
 
+@mixin mq($breakpoint: mobile) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
