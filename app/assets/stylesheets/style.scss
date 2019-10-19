@@ -5,28 +5,59 @@
   box-shadow: 0 0 1px $light;
   position: fixed;
   z-index: 10;
+  @include mq(mobile){
+    height: calc(#{$header-height} - 35px);
+    padding: 3px 0;
+  }
   &__title{
     @include reset_a-tag($black);
     @include font_data($black,30px,bold);
+    & span{
+      @include mq(mobile){
+        display: none;
+      }
+    }
     float: left;
     line-height: $header-height;
     &__logo{
       height: calc(#{$header-height} - 10px);
       margin: 5px 10px;
       float: left;
+      @include mq(mobile){
+        height: calc(#{$header-height} - 35px);
+        margin: 0 0 0 3px;
+      }
     }
   }
   &__icons{
     float: right;
     display: flex;
     flex-flow: row nowrap;
+    justify-content: flex-end;
     margin-right: 20px;
+    @include mq(mobile){
+      margin: 4px 0 0 0;
+      width: 260px;
+      font-size: 10px;
+      text-align: center;
+    }
     &__icon{
       @include reset_a-tag($black);
       margin: 10px;
       text-align: center;
+      @include mq(mobile){
+        margin: 0 10px 0 0;
+      }
       &__explain{
         font-size: 12px;
+        @include mq(mobile){
+          font-size: 10px;
+        }
+      }
+      &--logout{
+        @include mq(mobile){
+          display: none;
+        }
       }
       &:hover{
         text-shadow: 0 0 2px gray;
@@ -37,6 +68,9 @@
 
 .main{
   padding-top: $header-height;
+  @include mq(mobile){
+    padding-top: calc(#{$header-height} - 35px);
+  }
   background-color: $main-color;
   width: 75%;
   height: $main-height;
