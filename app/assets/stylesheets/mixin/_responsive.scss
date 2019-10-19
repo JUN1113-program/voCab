@@ -1,0 +1,10 @@
+// 指定した定数よりwindowが小さければ適応する
+$breakpoints: (
+  'mobile'   : 'screen and (max-width: 450px)',
+  'tablet'   : 'screen and (max-width: 768px)',
+  'laptop'   : 'screen and (max-width: 1000px)',
+  'laptopL'  : 'screen and (max-width: 1440px)',
+  'desktop'  : 'screen and (max-width: 1920px)',
+  '4k'       : 'screen and (max-width: 2560px)',
+) !default;
+
