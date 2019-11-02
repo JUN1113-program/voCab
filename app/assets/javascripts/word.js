@@ -38,6 +38,7 @@ $(function(){
     }
     appendHTML(cards[count],"front");
   });
+
   // 右矢印が押された際に前の単語を表示する
   $(".button__arrow--right").on("click",function(){
     count++;
@@ -48,6 +49,50 @@ $(function(){
     }
   });
 
+  // スワイプの挙動を実装
+  var direction;
+  var position;
+  var main = $(".main--showWordBook");
+  main.on('touchstart', onTouchStart);
+  main.on('touchmove', onTouchMove);
+  main.on('touchend', onTouchEnd);
+
+  //横方向の座標を取得
+  function getPosition(event) {
+    return event.originalEvent.touches[0].pageX;
+  }
+
+  function onTouchStart(event) {
+    position = getPosition(event);
+    direction = '';
+  }
+
+  function onTouchMove(event) {
+    if (position - getPosition(event) > 50) {
+      direction = 'left';
+    } else if (position - getPosition(event) < -50){
+      direction = 'right';
+    }
+  }
+
+  // 移動の左右を把握して単語カードを入れ替える
+  function onTouchEnd(event) {
+    if (direction == 'right'){
+      if(count > 0){
+        count--
+      }
+      appendHTML(cards[count],"front");
+    } else if (direction == 'left'){
+      count++;
+      if(count >= cards.length){
+        window.location.pathname = `/wordbooks/${id}/words`;
+      }else if(count < cards.length){
+        appendHTML(cards[count],"front");
+      }
+    }
+  }
+
+  //指定のページであれば単語帳を取得する
   showWordBook ? wordcard() : null ;
 
   // 裏表を入れ替える
