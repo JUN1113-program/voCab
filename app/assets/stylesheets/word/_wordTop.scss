@@ -1,4 +1,7 @@
 .wordTop{
+  @include mq(mobile){
+    display: none;
+  }
   height:  $create-wordcard-height;
   border-bottom: 1px solid $black;
   @include font_data($black, 20px, bold);
