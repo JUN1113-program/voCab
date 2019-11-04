@@ -5,12 +5,16 @@
   align-content: space-around;
   &--index{
     margin: 0 auto;
-    max-width: 1000px;
-    min-width: 850px;
+    width: 1000px;
     align-content: flex-start;
     height: calc(#{$main-height} - #{$create-wordcard-height});
     overflow: scroll;
     @include hiddenScrollBar;
+    @include mq(mobile){
+      padding-top: 60px;
+      width: 370px;
+      height: $main-height;
+    }
   }
   & .wordcard{
     @include card_style;
