@@ -1,3 +1,6 @@
 .inputWordBook{
   @include input_form;
+  @include mq(mobile){
+    @include input_form(300px);
+  }
 }
