@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
   def secret_wordbook?
     redirect_to root_path if @wordbook.share && @wordbook.user.id != current_user&.id
   end
+
+# モバイルからのアクセスかどうかを判定し、boolean値を返す
+  def mobile?
+    device = request.env["HTTP_USER_AGENT"]
+    return device.include?('Mobile') || device.include?('Android')
+  end
 end
