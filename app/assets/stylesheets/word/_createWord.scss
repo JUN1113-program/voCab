@@ -1,5 +1,8 @@
 .createWord{
   @include input_form(380px);
+  @include mq(mobile){
+    @include input_form(300px);
+  }
   margin-top: $create-wordcard-height;
   &__form{
     &__input{

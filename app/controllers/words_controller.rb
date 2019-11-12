@@ -24,12 +24,12 @@ class WordsController < ApplicationController
 
   def update
     @word.update(word_params)
-    redirect_to new_wordbook_word_path(params[:wordbook_id])
+    redirect_for_mobile
   end
 
   def destroy
     @word.destroy
-    redirect_to new_wordbook_word_path(params[:wordbook_id])
+    redirect_for_mobile
   end
 
   private
@@ -47,5 +47,13 @@ class WordsController < ApplicationController
 
   def set_words
     @words = @wordbook.words.order("updated_at DESC")
+  end
+
+  def redirect_for_mobile
+    if mobile?
+      redirect_to wordbook_words_path(params[:wordbook_id])
+    else
+      redirect_to new_wordbook_word_path(params[:wordbook_id])
+    end
   end
 end
