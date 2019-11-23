@@ -1,21 +1,39 @@
 .main--showUser{
   width: 65%;
   display: flex;
+  @include mq(mobile){
+    width: 100%;
+    float: none;
+    height: auto;
+  }
 }
 .sideBar--showUser{
   width: 35%;
   background-color: $white;
   border-left: 3px dotted $black;
+  @include mq(mobile){
+    padding-top: 10px;
+    height: auto;
+    width: 100%;
+    position: static;
+    border-left: none;
+  }
 }
 .showUser{
   width: 100%;
   &--scroll{
     height: $main-height;
     overflow: scroll;
+    @include mq(mobile){
+      overflow: unset;
+    }
   }
   &__bar{
     @include card_style(50px,95%);
     margin: 10px auto;
+    @include mq(mobile){
+      // margin: 30px auto;
+    }
     &__title{
       @include text_center(50px,center);
       @include font_data($black,20px,bold);
