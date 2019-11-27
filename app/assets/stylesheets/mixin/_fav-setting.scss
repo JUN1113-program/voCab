@@ -20,6 +20,10 @@
   background-color: white;
   max-width: $noted-width;
   min-height: $noted-height;
+  @include mq(mobile){
+    border: none;
+    box-shadow: none;
+  }
 }
 
 // カード風のスタイル
